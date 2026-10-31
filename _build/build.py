@@ -322,9 +322,9 @@ STEPS = [
 ]
 
 
-def steps_block():
-    steps = ''.join(f'<details class="reveal"{" open" if i == 0 else ""}><summary><span class="n">{i + 1:02d}</span><h3>{t}</h3></summary><p>{e(d)}</p></details>'
-                    for i, (t, d) in enumerate(STEPS))
+def steps_block(steps=STEPS):
+    steps = ''.join(f'<details class="reveal"{" open" if i == 0 else ""}><summary><span class="n">{i + 1:02d}</span><h3>{e(t)}</h3></summary><p>{e(d)}</p></details>'
+                    for i, (t, d) in enumerate(steps))
     return f'''<section class="dark">
   <div class="wrap">
     <div class="section-head center reveal"><div class="eyebrow">How it works</div><h2>Getting started is <span class="hl">easy</span></h2></div>
@@ -587,7 +587,7 @@ def build_service(s):
     {img(s["img"] + ".jpg", cls="reveal rounded")}
   </div>
 </section>
-{steps_block().replace('class="dark"', 'class=""', 1)}{reviews_band()}{faq_block(s["faqs"], title=e(s["name"]) + " FAQ")}<section>
+{steps_block(s.get('steps', STEPS)).replace('class="dark"', 'class=""', 1)}{reviews_band()}{faq_block(s["faqs"], title=e(s["name"]) + " FAQ")}<section>
   <div class="wrap">
     <div class="section-head reveal"><div class="eyebrow">Service areas</div><h2>{e(s["name"])} <span class="hl">near you</span></h2>
     <p>Pick your town to see our {e(s["name"])} services there.</p></div>

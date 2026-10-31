@@ -39,11 +39,11 @@ COMBOS = {
         'lead': 'Professional Christmas light installation for Apex homes, from design to takedown.',
         'body': [
             'Apex really gets into the holiday season, and a lot of homes here are two stories with steep roof peaks that are no fun to climb in December. We design your display, show you a mockup, and install commercial-grade lights along rooflines and peaks and around trees, bushes and columns.',
-            'After the holidays we take everything down and store it until next year. Already have your own lights? We also do one-time installations using your lights.',
+            'We supply the lights, keep them working all season, and after the holidays we take everything down and store it until next year. Already have your own lights? We also do one-time installations using your lights.',
         ],
         'faqs': [
             ('When should I book Christmas light installation in Apex?', 'As early as you can. October and early November are the best times to book, since schedules fill up as the holidays get closer.'),
-            ('Will you take the lights down after the holidays?', 'Yes. Takedown and storage are available, so your lights come down safely and are ready to go again next season.'),
+            ('Will you take the lights down after the holidays?', 'Yes. Takedown and storage are part of the seasonal package. We take the lights down after the holidays on your scheduled dates and store them until next season.'),
         ],
     },
     ('commercial-hoa', 'apex-nc'): {
@@ -96,7 +96,7 @@ COMBOS = {
         'lead': 'Custom Christmas light design and installation for Cary homes.',
         'body': [
             'Cary neighborhoods take curb appeal seriously, and that does not stop in December. We design a display that suits your home, show you a mockup, then install commercial-grade lights on rooflines and peaks and wrap trees, bushes and columns. Cary\'s big front-yard trees make especially striking wrapped displays.',
-            'Seasonal maintenance is available to keep your display bright through the holidays. When the season wraps up, we take everything down and store it. We can also install lights you already own.',
+            'We supply the lights and materials, and normal repairs are included to keep your display bright through the holidays. When the season wraps up, we take everything down and store it. We can also install lights you already own.',
         ],
         'faqs': [
             ('Can you wrap the big trees in my Cary yard with lights?', 'Yes. Tree, bush and column lighting are part of our installations, and a large tree can become the centerpiece of your display.'),
@@ -153,7 +153,7 @@ COMBOS = {
         'lead': 'Christmas light installation for Holly Springs homes, designed and hung for you.',
         'body': [
             'Newer Holly Springs homes often have tall two-story fronts and several roof peaks, which look amazing outlined in lights and are exactly the kind of work you do not want to do yourself on a ladder. We design your display, show you a mockup, and install commercial-grade lights on rooflines, peaks, columns, trees and bushes.',
-            'We can keep it running through the season and take it all down and store it afterward. If you already have lights, ask about a one-time install with your own materials.',
+            'We supply the lights, keep them running through the season and take it all down and store it afterward. If you already have lights, ask about a one-time install with your own materials.',
         ],
         'faqs': [
             ('Do you light two-story homes?', 'Yes. Rooflines and peaks on two-story homes are some of the most popular installations we do.'),
@@ -210,7 +210,7 @@ COMBOS = {
         'lead': 'Christmas light installation for Fuquay-Varina homes that want to stand out.',
         'body': [
             'With bigger lots and more trees, Fuquay-Varina homes have room for displays that really stand out from the road. We design and mock up your display, then install commercial-grade lights on the roofline and peaks, wrap trees and bushes, and light up columns and entryways.',
-            'We can maintain your display through the season, then take it down and store it. Prefer to use lights you already own? We do one-time installs with your materials too.',
+            'We supply the lights, maintain your display through the season, then take it down and store it. Prefer to use lights you already own? We do one-time installs with your materials too.',
         ],
         'faqs': [
             ('Can you light the trees along my driveway?', 'Yes. Tree and bush lighting is part of our installations, and lit driveway trees make a great welcome for guests.'),
@@ -268,7 +268,7 @@ COMBOS = {
         'lead': 'Christmas lights for Morrisville homes, installed and taken down for you.',
         'body': [
             'For busy households, holiday lights are one more thing on the list. We take it off your plate: we design your display, show you a mockup, install commercial-grade lights on rooflines, peaks, trees, bushes and columns, and come back after the season to take it all down.',
-            'We store your lights so they are ready next year, and we can do one-time installs with lights you already own. Townhomes and smaller homes can look just as festive with a clean roofline and a few lit bushes.',
+            'We supply the lights and store them between seasons, so there is nothing for you to buy or keep in the garage. We can also do one-time installs with lights you already own. Townhomes and smaller homes can look just as festive with a clean roofline and a few lit bushes.',
         ],
         'faqs': [
             ('Do you install lights on townhomes?', 'Yes, where the HOA allows it. A simple roofline and some bush lighting can make a townhome look great.'),
@@ -325,7 +325,7 @@ COMBOS = {
         'lead': 'Christmas light design and installation for southwest Raleigh homes.',
         'body': [
             'Raleigh\'s big old trees and classic homes make for beautiful holiday displays. We design your lighting and show you a mockup, then install commercial-grade lights along the roofline and peaks, wrap trees and bushes, and light up porch columns.',
-            'We can maintain the display through the season and take it down and store it afterward. Have your own lights? Ask about a one-time installation.',
+            'We supply the lights, maintain the display through the season, and take it down and store it afterward. Have your own lights? Ask about a one-time installation.',
         ],
         'faqs': [
             ('Can you light large trees?', 'Yes. Wrapping the trunks and lower branches of large trees is one of the most striking ways to light up a yard.'),
