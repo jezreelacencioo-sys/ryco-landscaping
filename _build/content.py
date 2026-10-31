@@ -211,7 +211,7 @@ GUIDES = [
 <h2>The quick answer</h2>
 <p><strong>Choose pine straw</strong> for slopes, natural-looking beds and a classic Carolina look. <strong>Choose hardwood mulch</strong> for a darker, more formal look on flat beds where you want color that lasts.</p>
 ''',
-        'related_services': ['landscaping', 'lawn-care', 'hardscaping-fencing'],
+        'related_services': ['landscaping', 'lawn-care', 'hardscaping'],
     },
     {
         'slug': 'when-to-trim-trees-nc',

@@ -236,8 +236,17 @@ def svc_card(s):
 </a>'''
 
 
-def svc_grid(services):
-    return '<div class="cards">\n' + '\n'.join(svc_card(s) for s in services) + '\n</div>'
+def svc_grid(services, cta=False):
+    cards = [svc_card(s) for s in services]
+    if cta:
+        cards.append('''<a class="svc svc-cta reveal" href="~/contact/">
+  <div>
+    <h3>Not sure what you need?</h3>
+    <p>Tell us about your property and we'll put together a free estimate.</p>
+    <span class="more">Get a free estimate →</span>
+  </div>
+</a>''')
+    return '<div class="cards">\n' + '\n'.join(cards) + '\n</div>'
 
 
 def faq_block(faqs, title='Common questions', eyebrow='FAQ', cls='off'):
@@ -369,7 +378,7 @@ def before_after_home():
 # ------------------------------------------------------------------ pages
 
 def build_home():
-    services_cards = svc_grid(SERVICES)
+    services_cards = svc_grid(SERVICES, cta=True)
     guides = '\n'.join(guide_card(g) for g in GUIDES)
     body = f'''<section class="hero" style="background-image:url('~/images/hero-home.jpg')">
   <div class="wrap">
@@ -458,7 +467,7 @@ def build_services_hub():
                      'Everything outside your home or property, handled by one local, 5-star rated and 100% insured crew.', crumbs) + f'''<section>
   <div class="wrap">
     <div class="section-head reveal"><div class="eyebrow">Pick a service</div><h2>What can we <span class="hl">help with?</span></h2></div>
-    {svc_grid(SERVICES)}
+    {svc_grid(SERVICES, cta=True)}
   </div>
 </section>
 {steps_block()}{reviews_band()}{cta_band()}'''

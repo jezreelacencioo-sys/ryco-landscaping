@@ -35,17 +35,6 @@ COMBOS = {
             ('Should I remove pine trees close to my Apex home?', 'Not automatically. A healthy pine can stand for decades. But pines that are dead, leaning, damaged or very close to the house are worth having looked at, especially before storm season.'),
         ],
     },
-    ('hardscaping-fencing', 'apex-nc'): {
-        'lead': 'Paver patios, walkways, fire pits and vinyl fencing built for Apex backyards.',
-        'body': [
-            'A lot of Apex homes have a small builder-grade concrete pad out back and not much else. We can turn that into a real outdoor living space: install pavers right over the existing concrete, extend it into a bigger patio, and add a fire pit to gather around.',
-            'We also build paver and flagstone walkways, gravel paths, paver driveway extensions for extra parking, and vinyl fences and gates. Every project sits on a properly compacted base to stand up to clay soil and summer storms.',
-        ],
-        'faqs': [
-            ('Can you put pavers over my concrete patio in Apex?', 'Often, yes. If the slab is in decent shape, pavers can go right over it for a completely new look without demolition. We check the concrete during your free estimate.'),
-            ('Do I need approval for a fence in Apex?', 'If you live in an HOA neighborhood, almost certainly. Many HOAs set rules for fence height, style and color, and the town may have requirements too, so check before installing.'),
-        ],
-    },
     ('christmas-lights', 'apex-nc'): {
         'lead': 'Professional Christmas light installation for Apex homes, from design to takedown.',
         'body': [
@@ -101,17 +90,6 @@ COMBOS = {
         'faqs': [
             ('Do I need a permit to remove a tree in Cary?', 'It depends on the tree and the property. Cary has tree protection rules in some situations, and many HOAs require approval, so check with the Town of Cary and your HOA before removing a large tree.'),
             ('How often should mature trees be trimmed?', 'Many mature shade trees benefit from pruning every few years, plus prompt removal of dead or broken limbs. Trees hanging over a roof may need attention more often.'),
-        ],
-    },
-    ('hardscaping-fencing', 'cary-nc'): {
-        'lead': 'Patios, walkways, fire pits and fencing that fit Cary\'s established neighborhoods.',
-        'body': [
-            'Many Cary homes have older concrete patios and walks that are cracked, stained or just dated. Installing pavers over the existing concrete is one of the simplest ways to update them, and we can expand the space at the same time with a larger paver patio or a fire pit area.',
-            'Out front, paver and flagstone walkways make a strong first impression. Out back, we install vinyl fences and gates for privacy and pets. With Cary\'s mature trees, we plan around roots and handle runoff, including permeable options that let rainwater soak in.',
-        ],
-        'faqs': [
-            ('Can you build a patio near big tree roots?', 'Often, yes, but it takes planning. We design around major roots where possible and may suggest a different spot or a gravel or permeable option to protect the tree.'),
-            ('Is a paver patio better than concrete?', 'Pavers handle soil movement better because each piece can shift slightly without cracking, and damaged pavers can be lifted and replaced. Concrete is usually cheaper up front but cracks and is harder to repair.'),
         ],
     },
     ('christmas-lights', 'cary-nc'): {
@@ -171,17 +149,6 @@ COMBOS = {
             ('Can you replace a tree you remove?', 'Yes. We offer dead tree removal and replacement, planting a new tree that fits the space.'),
         ],
     },
-    ('hardscaping-fencing', 'holly-springs-nc'): {
-        'lead': 'Patios, fire pits, walkways and fences for Holly Springs backyards.',
-        'body': [
-            'Newer Holly Springs homes usually come with a basic concrete pad and an open backyard. We build paver patios and fire pits that turn that space into somewhere you actually want to spend your evenings, and can install pavers over the existing slab to tie it all together.',
-            'Vinyl fences and gates are one of the most common first projects for new homeowners with kids or pets. We also add paver driveway extensions, walkways and gravel paths. On sloped, graded lots, permeable patios and paths help rainwater soak in instead of running across the yard.',
-        ],
-        'faqs': [
-            ('What is the most popular backyard upgrade for new homes?', 'A paver patio with a fire pit, often paired with a vinyl fence for privacy and pets.'),
-            ('Can you extend my driveway with pavers?', 'Yes. Paver driveway extensions add parking or turnaround space and can match or complement your existing driveway.'),
-        ],
-    },
     ('christmas-lights', 'holly-springs-nc'): {
         'lead': 'Christmas light installation for Holly Springs homes, designed and hung for you.',
         'body': [
@@ -237,17 +204,6 @@ COMBOS = {
         'faqs': [
             ('Can you clean up storm debris on my property?', 'Yes. We clear fallen limbs, brush and tree debris and haul it away.'),
             ('How much does stump grinding cost?', 'It depends on the size of the stump, how many there are and how easy they are to reach. Estimates are free, so call or text with a photo or two.'),
-        ],
-    },
-    ('hardscaping-fencing', 'fuquay-varina-nc'): {
-        'lead': 'Patios, fire pits, paths and fences for Fuquay-Varina backyards.',
-        'body': [
-            'Bigger backyards in Fuquay-Varina are perfect for real outdoor living spaces: a paver patio, a fire pit for cool evenings, and gravel or stone pathways connecting it all.',
-            'Vinyl fences and gates keep kids and pets in and add privacy on open lots. We also build paver driveway extensions for extra parking and install pavers over worn concrete. Every hardscape sits on a properly compacted base so it stays level.',
-        ],
-        'faqs': [
-            ('Are gravel paths a good option for large yards?', 'Yes. Gravel and stone pathways cost less, drain well and look natural, which makes them a great fit for longer runs across bigger properties.'),
-            ('How long does a vinyl fence last?', 'A quality vinyl fence can last for decades. It will not rot or need painting and cleans up easily with a hose.'),
         ],
     },
     ('christmas-lights', 'fuquay-varina-nc'): {
@@ -308,17 +264,6 @@ COMBOS = {
             ('What trees work well in small yards?', 'Smaller ornamental trees like Japanese maples, redbuds and dwarf crape myrtles fit small yards without outgrowing the space.'),
         ],
     },
-    ('hardscaping-fencing', 'morrisville-nc'): {
-        'lead': 'Patios, walkways and fences that make the most of Morrisville yards.',
-        'body': [
-            'Smaller backyards benefit the most from good hardscaping. A paver patio with a fire pit can turn a narrow yard into a usable outdoor room, and pavers installed over an existing concrete pad give it a custom look.',
-            'Vinyl fences and gates add privacy in close-set neighborhoods, and walkways and gravel paths make side yards useful. Most Morrisville communities have HOA rules for fences and patios, so plan on getting approval before we start.',
-        ],
-        'faqs': [
-            ('Can a small yard have a fire pit?', 'Often, yes. A compact paver patio with a fire pit fits in many small yards. Check HOA rules and keep a safe distance from the house, fences and trees.'),
-            ('Do you install privacy fences in HOA communities?', 'Yes. We install vinyl fences and gates and can work to your HOA\'s style and height requirements.'),
-        ],
-    },
     ('christmas-lights', 'morrisville-nc'): {
         'lead': 'Christmas lights for Morrisville homes, installed and taken down for you.',
         'body': [
@@ -376,17 +321,6 @@ COMBOS = {
             ('Do you remove dead trees in Raleigh?', 'Yes. We remove dead and dying trees in southwest Raleigh, grind the stumps and haul away all the debris.'),
         ],
     },
-    ('hardscaping-fencing', 'raleigh-nc'): {
-        'lead': 'Patios, walkways, fire pits and fences for southwest Raleigh homes.',
-        'body': [
-            'Older Raleigh homes often have cracked concrete walks and patios. Pavers over the existing concrete, or new paver and flagstone walkways, give them a fresh look that suits the character of the home.',
-            'Out back, paver patios and fire pits make shaded yards more usable, and permeable patio options help with runoff. We also install vinyl fences and gates, and gravel paths that work well around tree roots.',
-        ],
-        'faqs': [
-            ('Is flagstone or pavers better for a walkway?', 'Flagstone has a natural, irregular look that suits older and cottage-style homes. Pavers are more uniform and very durable. Both work well on a properly built base.'),
-            ('Can gravel paths go near tree roots?', 'Yes. Gravel paths are a gentler option near trees because they need less digging than pavers and let water reach the roots.'),
-        ],
-    },
     ('christmas-lights', 'raleigh-nc'): {
         'lead': 'Christmas light design and installation for southwest Raleigh homes.',
         'body': [
@@ -408,6 +342,140 @@ COMBOS = {
         'faqs': [
             ('Do you maintain HOAs in Raleigh?', 'Yes, mainly in southwest Raleigh, close to our Apex base. Contact us about your community.'),
             ('Can you handle tree care in common areas?', 'Yes. Plant and tree maintenance and replacement is part of our commercial and HOA service.'),
+        ],
+    },
+
+    # ------------------------------------------------------------ Hardscaping and fencing
+    ('hardscaping', 'apex-nc'): {
+        'lead': 'Paver patios, walkways, driveway extensions and fire pits built for Apex backyards.',
+        'body': [
+            'A lot of Apex homes have a small builder-grade concrete pad out back and not much else. We can turn that into a real outdoor living space: install pavers right over the existing concrete, extend it into a bigger patio, and add a fire pit to gather around.',
+            'We also build paver and flagstone walkways, gravel paths and paver driveway extensions for extra parking. Every project sits on a properly compacted base to stand up to clay soil and summer storms, and a design up front makes HOA approval easier.',
+        ],
+        'faqs': [
+            ('Can you put pavers over my concrete patio in Apex?', 'Often, yes. If the slab is in decent shape, pavers can go right over it for a completely new look without demolition. We check the concrete during your free estimate.'),
+            ('How much room do I need for a fire pit area?', 'Plan for the fire pit plus room for chairs all the way around, and keep it a safe distance from the house, fences and overhanging trees. We help size it to fit your yard.'),
+        ],
+    },
+    ('hardscaping', 'cary-nc'): {
+        'lead': "Patios, walkways and fire pits that fit Cary's established neighborhoods.",
+        'body': [
+            'Many Cary homes have older concrete patios and walks that are cracked, stained or just dated. Installing pavers over the existing concrete is one of the simplest ways to update them, and we can expand the space at the same time with a larger paver patio or a fire pit area.',
+            "Out front, paver and flagstone walkways make a strong first impression. With Cary's mature trees, we plan patios around roots and handle runoff, including permeable options that let rainwater soak in.",
+        ],
+        'faqs': [
+            ('Can you build a patio near big tree roots?', 'Often, yes, but it takes planning. We design around major roots where possible and may suggest a different spot or a gravel or permeable option to protect the tree.'),
+            ('Is a paver patio better than concrete?', 'Pavers handle soil movement better because each piece can shift slightly without cracking, and damaged pavers can be lifted and replaced. Concrete is usually cheaper up front but cracks and is harder to repair.'),
+        ],
+    },
+    ('hardscaping', 'holly-springs-nc'): {
+        'lead': 'Patios, fire pits, walkways and driveway extensions for Holly Springs homes.',
+        'body': [
+            'Newer Holly Springs homes usually come with a basic concrete pad and an open backyard. We build paver patios and fire pits that turn that space into somewhere you actually want to spend your evenings, and can install pavers over the existing slab to tie it all together.',
+            'We also add paver driveway extensions, walkways and gravel paths. On sloped, graded lots, permeable patios and paths help rainwater soak in instead of running across the yard.',
+        ],
+        'faqs': [
+            ('What is the most popular backyard upgrade for new homes?', 'A paver patio with a fire pit is one of the most popular first projects for new homeowners in Holly Springs.'),
+            ('Can you extend my driveway with pavers?', 'Yes. Paver driveway extensions add parking or turnaround space and can match or complement your existing driveway.'),
+        ],
+    },
+    ('hardscaping', 'fuquay-varina-nc'): {
+        'lead': "Patios, fire pits and pathways for Fuquay-Varina's bigger backyards.",
+        'body': [
+            'Bigger backyards in Fuquay-Varina are perfect for real outdoor living spaces: a paver patio, a fire pit for cool evenings, and gravel or stone pathways connecting it all.',
+            'We also build paver driveway extensions for extra parking and install pavers over worn concrete. Every hardscape sits on a properly compacted base so it stays level, even on larger, more open lots.',
+        ],
+        'faqs': [
+            ('Are gravel paths a good option for large yards?', 'Yes. Gravel and stone pathways cost less, drain well and look natural, which makes them a great fit for longer runs across bigger properties.'),
+            ('Can you build a fire pit away from the house?', 'Yes. On bigger lots, a fire pit out in the yard with a gravel or paver path leading to it makes a great gathering spot.'),
+        ],
+    },
+    ('hardscaping', 'morrisville-nc'): {
+        'lead': 'Patios and walkways that make the most of Morrisville yards.',
+        'body': [
+            'Smaller backyards benefit the most from good hardscaping. A paver patio with a fire pit can turn a narrow yard into a usable outdoor room, and pavers installed over an existing concrete pad give it a custom look.',
+            'Walkways and gravel paths make narrow side yards useful. Most Morrisville communities have HOA rules for patios and fire pits, so plan on getting approval before we start.',
+        ],
+        'faqs': [
+            ('Can a small yard have a fire pit?', 'Often, yes. A compact paver patio with a fire pit fits in many small yards. Check HOA rules and keep a safe distance from the house, fences and trees.'),
+            ('Are pavers a good choice for small patios?', 'Yes. Pavers come in many sizes and patterns, so a small patio can still look custom, and they are easy to repair if a section ever settles.'),
+        ],
+    },
+    ('hardscaping', 'raleigh-nc'): {
+        'lead': 'Patios, walkways and fire pits for southwest Raleigh homes.',
+        'body': [
+            'Older Raleigh homes often have cracked concrete walks and patios. Pavers over the existing concrete, or new paver and flagstone walkways, give them a fresh look that suits the character of the home.',
+            'Out back, paver patios and fire pits make shaded yards more usable, and permeable patio options help with runoff. Gravel paths are a great option around big tree roots.',
+        ],
+        'faqs': [
+            ('Is flagstone or pavers better for a walkway?', 'Flagstone has a natural, irregular look that suits older and cottage-style homes. Pavers are more uniform and very durable. Both work well on a properly built base.'),
+            ('Can gravel paths go near tree roots?', 'Yes. Gravel paths are a gentler option near trees because they need less digging than pavers and let water reach the roots.'),
+        ],
+    },
+    ('fencing', 'apex-nc'): {
+        'lead': 'Vinyl fences and gates for Apex backyards, built for privacy, pets and HOA rules.',
+        'body': [
+            'In a lot of Apex neighborhoods, backyards sit close together, and a privacy fence is often the first thing new homeowners want. Vinyl is a popular choice here because it never needs painting or staining and stands up to our humid summers without rotting.',
+            'Most Apex subdivisions have HOA rules on fence height, style and color, so we plan the fence line and style with your HOA guidelines in mind. Gates are sized for how you will use them, from a simple walk gate to a wider gate for mowers or trailers.',
+        ],
+        'faqs': [
+            ('Do I need HOA approval for a fence in Apex?', 'If you live in an HOA neighborhood, almost certainly. Many HOAs set rules for fence height, style and color, and the town may have requirements too, so check before installing.'),
+            ('What height privacy fence is common in Apex?', 'Six-foot privacy fences are the most common choice for backyards, but HOA rules and town requirements set the limits, so check before you choose.'),
+        ],
+    },
+    ('fencing', 'cary-nc'): {
+        'lead': 'Vinyl fencing for Cary homes, planned around mature trees and neighborhood standards.',
+        'body': [
+            'Cary yards often have big trees, roots and sloped ground, which make fence lines trickier than they look. We plan post locations around major roots where possible and set the panels to follow the slope of the yard.',
+            "Many Cary neighborhoods have clear standards for fence style and color, and vinyl's clean, consistent look fits right in. It also will not rot in shady, damp parts of the yard the way wood can.",
+        ],
+        'faqs': [
+            ('Can you install a fence around tree roots?', 'Usually, yes. We adjust post spacing to avoid major roots where possible to protect both the tree and the fence.'),
+            ('Does Cary require a permit for a fence?', 'It depends on the fence and the property. Check with the Town of Cary and your HOA before installing, especially for taller fences or fences near easements.'),
+        ],
+    },
+    ('fencing', 'holly-springs-nc'): {
+        'lead': 'Vinyl fences and gates for new Holly Springs homes with kids and pets.',
+        'body': [
+            'New construction in Holly Springs usually means an open backyard and no fence. For families with kids or dogs, a fence is often the first project after moving in. Vinyl gives you a clean look with no painting or staining, and gap-free privacy panels keep pets from slipping through.',
+            'Graded lots in newer neighborhoods often slope toward the back or sides, so we set the fence to follow the grade and keep the bottom close to the ground. We also plan gate placement around how you actually use the yard.',
+        ],
+        'faqs': [
+            ('What fence is best for dogs?', 'A solid vinyl privacy fence with no gaps is a great choice. It keeps the bottom close to the ground so dogs cannot squeeze under, and it blocks the view of passersby.'),
+            ('Can a fence follow a sloped yard?', 'Yes. Panels can be stepped down the slope so the fence follows the grade of the yard.'),
+        ],
+    },
+    ('fencing', 'fuquay-varina-nc'): {
+        'lead': "Vinyl fencing for Fuquay-Varina's bigger yards and open lots.",
+        'body': [
+            "Larger lots in Fuquay-Varina mean longer fence runs, and that is where vinyl's low maintenance really pays off. There is no painting, staining or replacing rotten boards across hundreds of feet of fence.",
+            'Many properties here back up to woods or open land. A fence keeps pets in, defines the yard and adds privacy from roads and neighbors. Wider gates make it easy to get mowers, trailers and equipment in and out.',
+        ],
+        'faqs': [
+            ('How long does a vinyl fence last?', 'A quality vinyl fence can last for decades. It will not rot or need painting and cleans up easily with a hose.'),
+            ('Can you fence just part of a large lot?', 'Yes. Many homeowners fence only the backyard or a section for pets instead of the whole property.'),
+        ],
+    },
+    ('fencing', 'morrisville-nc'): {
+        'lead': "Vinyl privacy fences that fit Morrisville's close-set HOA neighborhoods.",
+        'body': [
+            'With smaller lots and homes close together, privacy is a big deal in Morrisville. A vinyl privacy fence turns a backyard into a private space, and its clean, uniform look tends to fit HOA standards well.',
+            "We plan the fence around your HOA's rules for height, style and color, and around tight side yards where gates need to fit between homes.",
+        ],
+        'faqs': [
+            ('Do you install fences in Morrisville HOA communities?', "Yes. We install vinyl fences and gates and can work to your HOA's style and height requirements."),
+            ('Will a fence fit in a narrow side yard?', 'Usually. Gates and short runs can be sized to fit tight side yards between homes.'),
+        ],
+    },
+    ('fencing', 'raleigh-nc'): {
+        'lead': 'Vinyl fences and gates for southwest Raleigh homes.',
+        'body': [
+            'Many older Raleigh homes still have aging wood fences that are leaning, rotting or missing boards. Replacing them with vinyl means no more painting, staining or patching, and a fence that looks the same years from now.',
+            "Under Raleigh's big oaks, wood fences stay damp and rot faster. Vinyl will not rot, and we plan post locations around large roots wherever possible.",
+        ],
+        'faqs': [
+            ('Can you replace my old wood fence with vinyl?', 'Yes. We can install a new vinyl fence where your old one stands. Ask about removing the old fence when you get your estimate.'),
+            ('Is vinyl fencing good in shady yards?', 'Yes. Unlike wood, vinyl does not rot in damp, shady areas, though it may need an occasional rinse to keep it clean.'),
         ],
     },
 }

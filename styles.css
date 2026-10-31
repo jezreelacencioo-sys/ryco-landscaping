@@ -124,11 +124,16 @@ section { padding: 92px 0; }
 .rating-hero .actions { margin-top: 18px; }
 
 /* Service cards */
-.cards { display: grid; gap: 22px; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); }
+.cards { display: grid; gap: 22px; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
 .svc { position: relative; display: flex; align-items: flex-end; min-height: 350px; border-radius: var(--radius); overflow: hidden; color: var(--white); text-decoration: none; background: var(--black); }
 .svc img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
 .svc::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, .9) 100%); }
 .svc:hover img { transform: scale(1.07) rotate(.5deg); }
+.svc-cta { background: var(--lime); color: var(--black); }
+.svc-cta::after { content: none; }
+.svc.svc-cta p { color: var(--black); }
+.svc.svc-cta .more { color: var(--black); }
+.svc-cta:hover { transform: rotate(-1deg); }
 .svc div { position: relative; z-index: 1; padding: 26px; }
 .svc h3 { font-size: 1.8rem; margin-bottom: .2em; }
 .svc p { margin: 0; color: #d9e1db; }
