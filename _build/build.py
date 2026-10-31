@@ -8,7 +8,7 @@ from html import escape
 from PIL import Image
 
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
-from content import SITE, BUSINESS, SERVICES, COMBOS, TOWNS, GUIDES, HOME_FAQS, REVIEWS, PROJECTS  # noqa: E402
+from content import SITE, BUSINESS, SERVICES, COMBOS, TOWNS, GUIDES, HOME_FAQS, REVIEWS, PROJECTS, SOCIAL  # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 B = BUSINESS
@@ -49,6 +49,8 @@ BUSINESS_LD = {
     'address': {'@type': 'PostalAddress', 'addressLocality': B['city'], 'addressRegion': B['state'], 'addressCountry': 'US'},
     'areaServed': [{'@type': 'City', 'name': f"{t['name']}, NC"} for t in TOWNS],
 }
+if any(SOCIAL.values()):
+    BUSINESS_LD['sameAs'] = [u for u in SOCIAL.values() if u]
 
 
 def ld(*items):
@@ -121,6 +123,37 @@ def header(path):
 '''
 
 
+SOCIAL_ICONS = {
+    'facebook': ('Facebook', '<path d="M14 8h3V4h-3c-2.8 0-4.5 1.8-4.5 4.6V11H7v4h2.5v7h4v-7H16l.6-4h-3.1V9c0-.6.4-1 1-1z"/>'),
+    'instagram': ('Instagram', '<path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm5 5a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm5.5-1.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" fill-rule="evenodd"/>'),
+}
+
+
+def social_links():
+    links = ''.join(f'<a href="{url}" target="_blank" rel="noopener" aria-label="{SOCIAL_ICONS[k][0]}"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">{SOCIAL_ICONS[k][1]}</svg></a>'
+                    for k, url in SOCIAL.items() if url)
+    return f'<div class="social">{links}</div>' if links else ''
+
+
+def guarantee_block(cls='off'):
+    return f'''<section class="{cls}">
+  <div class="wrap guarantee reveal">
+    <div class="seal" aria-hidden="true">
+      <svg viewBox="0 0 200 200"><defs><path id="seal-circ" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs>
+      <text><textPath href="#seal-circ" textLength="486" lengthAdjust="spacing">SATISFACTION GUARANTEED ✦ SATISFACTION GUARANTEED ✦ </textPath></text></svg>
+      <span>100%<small>Guaranteed</small></span>
+    </div>
+    <div>
+      <div class="eyebrow">Our promise</div>
+      <h2>Not happy? We'll make it <span class="hl">right.</span></h2>
+      <p>Your satisfaction is guaranteed. If anything about our work isn't right, just let us know and we'll come back and fix it. No hassle, no runaround.</p>
+      <div class="actions"><a class="btn btn-lime" href="~/contact/">Get a Free Estimate</a></div>
+    </div>
+  </div>
+</section>
+'''
+
+
 def footer():
     svc = ''.join(f'<li><a href="~/services/{s["slug"]}/">{e(s["name"])}</a></li>' for s in SERVICES)
     towns = ''.join(f'<li><a href="~/service-areas/{t["slug"]}/">{t["name"]}, NC</a></li>' for t in TOWNS)
@@ -131,6 +164,7 @@ def footer():
         <a class="logo" href="~/">{LOGO}</a>
         <p>Lawn care, tree services and landscaping for homes in Apex, NC and the surrounding Triangle.</p>
         <p><a class="footer-phone" href="{TEL}">{B["phone"]}</a><br><a href="{MAILTO}">{B["email"]}</a><br>Apex, NC</p>
+        {social_links()}
         <p><span class="stars">★★★★★</span> {B["rating"]} on Google · {B["review_count"]} reviews</p>
       </div>
       <div><h2 class="foot-h">Services</h2><ul>{svc}</ul></div>
@@ -434,12 +468,13 @@ def build_home():
         <li>Lawn, landscape, tree and hardscape work from one company</li>
         <li>Free, no-pressure estimates</li>
         <li>Rated 5 stars on Google</li>
+        <li>Satisfaction guaranteed</li>
       </ul>
       <a class="btn btn-lime" href="~/about/">About Us</a>
     </div>
   </div>
 </section>
-{steps_block()}
+{guarantee_block(cls='')}{steps_block()}
 <section class="off">
   <div class="wrap split">
     <div class="reveal">
@@ -512,7 +547,7 @@ def build_service(s):
     </div>
     <aside class="include-card reveal">
       <h3>Why us</h3>
-      <ul class="checks"><li>100% insured</li><li>5.0 stars on Google</li><li>Free estimates</li><li>Local to Apex</li></ul>
+      <ul class="checks"><li>100% insured</li><li>Satisfaction guaranteed</li><li>5.0 stars on Google</li><li>Free estimates</li></ul>
       <a class="btn btn-lime" href="~/contact/">Get a Free Estimate</a>
     </aside>
   </div>
@@ -777,7 +812,7 @@ def build_about():
     </div>
   </div>
 </section>
-<section class="off">
+{guarantee_block(cls='')}<section class="off">
   <div class="wrap">
     <div class="section-head reveal"><div class="eyebrow">Service areas</div><h2>Where we <span class="hl">work</span></h2></div>
     {town_chips(", NC")}
@@ -797,7 +832,7 @@ def build_contact():
                      "Fill out the form and we'll get back to you with a price. You'll get a confirmation email right away.", crumbs, buttons=False) + f'''<section class="off">
   <div class="wrap contact-grid">
     <form class="form reveal" action="https://formsubmit.co/{B["email"]}" method="POST">
-      <h2>Request an estimate</h2>
+      <h2>Book a free estimate</h2>
       <input type="hidden" name="_subject" value="New estimate request from your website">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
@@ -814,6 +849,10 @@ def build_contact():
         <label>Town <select name="town">{towns}<option>Other</option></select></label>
         <label>Service needed <select name="service">{options}<option>Something else</option></select></label>
       </div>
+      <div class="row">
+        <label>Preferred estimate date <input name="preferred_date" type="date"></label>
+        <label>Preferred time <select name="preferred_time"><option>Any time</option><option>Morning (8–11)</option><option>Midday (11–2)</option><option>Afternoon (2–5)</option></select></label>
+      </div>
       <label>Details (optional) <textarea name="details" rows="4" placeholder="Yard size, timing, anything we should know"></textarea></label>
       <button class="btn btn-lime" type="submit">Send My Request</button>
       <p class="form-note">You'll get a confirmation email as soon as you send this. Prefer to talk? Call or text <a href="{TEL}">{B["phone"]}</a>.</p>
@@ -822,7 +861,7 @@ def build_contact():
       <div><h3>Call us</h3><a href="{TEL}">{B["phone"]}</a></div>
       <div><h3>Text us</h3><a href="{SMS}">{B["phone"]}</a></div>
       <div><h3>Email us</h3><a class="email" href="{MAILTO}">{B["email"]}</a></div>
-      <div><h3>Fully covered</h3><p>100% insured on every job</p></div>
+      <div><h3>Fully covered</h3><p>100% insured, and satisfaction guaranteed</p></div>
       <div><h3>Service area</h3><p>Apex, Cary, Holly Springs, Fuquay-Varina, Morrisville and southwest Raleigh, NC</p></div>
       <div><h3>Reviews</h3><p><span class="stars">★★★★★</span> {B["rating"]} on Google from {B["review_count"]} reviews</p></div>
     </div>

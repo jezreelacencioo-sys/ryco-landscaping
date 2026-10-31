@@ -38,7 +38,7 @@ h2 { font-size: clamp(2.3rem, 5vw, 3.6rem); color: var(--green); }
 .dark .hl, .hero .hl, .page-hero .hl, .include-card .hl { color: var(--lime); }
 
 /* Brush-stroke underline under section titles and page titles */
-.section-head h2::after, .page-hero h1::after, .hero h1::after, .cta-band h2::after, .coming-soon h2::after {
+.section-head h2::after, .page-hero h1::after, .hero h1::after, .cta-band h2::after, .coming-soon h2::after, .guarantee h2::after {
   content: ""; display: block; width: 240px; max-width: 70%; height: 14px; margin-top: 14px; background: var(--brush) no-repeat center / 100% 100%;
 }
 .section-head.center h2::after, .coming-soon h2::after { margin-left: auto; margin-right: auto; }
@@ -382,3 +382,28 @@ section { padding: 92px 0; }
   .split > img { box-shadow: -8px 8px 0 var(--green); }
   .map { box-shadow: 6px 6px 0 var(--lime); }
 }
+
+/* Satisfaction guarantee */
+.guarantee { display: grid; grid-template-columns: auto 1fr; gap: 50px; align-items: center; background: var(--white); border: 4px solid var(--green); border-radius: 28px; padding: 44px; box-shadow: 10px 10px 0 var(--lime); max-width: 1000px; }
+.guarantee p { color: var(--muted); font-size: 1.1rem; margin: 0; }
+.guarantee .actions { margin-top: 22px; }
+.seal { position: relative; width: 200px; height: 200px; flex: none; }
+.seal svg { width: 100%; height: 100%; animation: spin 30s linear infinite; }
+.seal text { font-family: var(--fun); font-size: 15px; letter-spacing: 2px; fill: var(--green); }
+.seal span { position: absolute; inset: 40px; border-radius: 50%; background: var(--green); color: var(--white); display: grid; place-content: center; text-align: center; font: 2.6rem/1 var(--fun); transform: rotate(-8deg); box-shadow: 0 0 0 5px var(--lime); }
+.seal small { font: 800 .8rem Nunito, sans-serif; text-transform: uppercase; letter-spacing: .12em; margin-top: 6px; color: var(--lime); }
+
+/* Social links */
+.social { display: flex; gap: 10px; margin-top: 14px; }
+.social a { width: 42px; height: 42px; border-radius: 12px; background: var(--green); color: var(--white); display: grid; place-items: center; transition: background .15s, transform .15s; }
+.social a:hover { background: var(--lime); color: var(--green-3); transform: rotate(-4deg); }
+
+@media (max-width: 760px) {
+  .guarantee { grid-template-columns: 1fr; justify-items: center; text-align: center; padding: 30px 24px; box-shadow: 6px 6px 0 var(--lime); }
+  .guarantee .actions { justify-content: center; }
+  .guarantee h2::after { margin-left: auto; margin-right: auto; }
+  .seal { width: 170px; height: 170px; }
+  .seal span { inset: 34px; font-size: 2.1rem; }
+  .seal small { font-size: .62rem; letter-spacing: .06em; }
+}
+@media (prefers-reduced-motion: reduce) { .seal svg { animation: none; } }

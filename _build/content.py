@@ -252,6 +252,7 @@ GUIDES = [
 ]
 
 HOME_FAQS = [
+    ('What if I\'m not happy with the work?', 'Just let us know. If something isn\'t right, we\'ll come back and make it right. Your satisfaction is guaranteed.'),
     ('Do you offer free estimates?', 'Yes. Call, text or use the form on our contact page with your address and what you need, and we will get back to you with a price.'),
     ('What areas do you serve?', 'We are based in Apex, NC and serve Cary, Holly Springs, Fuquay-Varina, Morrisville and southwest Raleigh. Not sure if you are in range? Just ask.'),
     ('Are you insured?', 'Yes. We are 100% insured, so your property is protected on every job.'),
@@ -259,6 +260,13 @@ HOME_FAQS = [
     ('Do you work with HOAs and commercial properties?', 'Yes. We provide recurring grounds maintenance, common area upkeep and trash pickup for HOA communities and commercial properties.'),
     ('When is the best time to aerate and overseed?', 'For tall fescue lawns, the most common type in the Triangle, early fall is best, roughly late August through mid-October, with September ideal.'),
 ]
+
+# ---------------------------------------------------------------- Social media
+# Add full profile links, e.g. 'facebook': 'https://www.facebook.com/yourpage'. Empty ones are hidden.
+SOCIAL = {
+    'facebook': '',
+    'instagram': '',
+}
 
 # ---------------------------------------------------------------- Reviews & projects
 # Add real Google reviews here, copied word for word. Leave empty to hide the section.
