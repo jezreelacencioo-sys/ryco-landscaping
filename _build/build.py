@@ -80,7 +80,8 @@ def ba_media(p):
     return f'''<div class="ba" style="--pos:50%">
   {img(p["after"], alt=p["title"] + " after")}
   <div class="ba-before">{img(p["before"], alt=p["title"] + " before")}</div>
-  <input type="range" min="0" max="100" value="50" aria-label="Drag to compare before and after">
+  <span class="ba-handle" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+  <input type="range" min="0" max="100" value="50" aria-label="Before and after comparison slider">
   <span class="ba-tag ba-tag-b">Before</span><span class="ba-tag ba-tag-a">After</span>
 </div>'''
 

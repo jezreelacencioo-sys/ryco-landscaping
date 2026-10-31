@@ -278,11 +278,17 @@ section { padding: 92px 0; }
 .project h3 { font-size: 1.7rem; color: var(--green); margin-bottom: .2em; }
 .project .meta { color: var(--lime-d); font-weight: 800; margin: 0 0 6px; }
 .project p { margin: 0; color: var(--muted); }
-.ba { position: relative; overflow: hidden; }
+.ba { position: relative; overflow: hidden; cursor: ew-resize; touch-action: pan-y; user-select: none; -webkit-user-select: none; }
+.ba img { pointer-events: none; -webkit-user-drag: none; }
 .ba img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .ba-before { position: absolute; inset: 0; clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
 .ba::after { content: ""; position: absolute; top: 0; bottom: 0; left: var(--pos); width: 5px; margin-left: -2px; background: var(--accent); pointer-events: none; }
-.ba input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; margin: 0; }
+.ba input { position: absolute; left: 0; bottom: 0; width: 1px; height: 1px; opacity: 0; margin: 0; pointer-events: none; }
+.ba-handle { position: absolute; z-index: 2; top: 50%; left: var(--pos); width: 56px; height: 56px; margin: -28px 0 0 -28px; border-radius: 50%; background: var(--accent); color: var(--green-3); border: 4px solid var(--white); box-shadow: 0 6px 18px rgba(0, 0, 0, .35); display: grid; place-items: center; pointer-events: none; transition: transform .15s; }
+.ba.dragging .ba-handle, .ba:hover .ba-handle { transform: scale(1.1); }
+.ba:focus-within .ba-handle { box-shadow: 0 0 0 4px var(--lime), 0 6px 18px rgba(0, 0, 0, .35); }
+.ba.hint .ba-handle { animation: ba-hint 1.4s ease-in-out 2; }
+@keyframes ba-hint { 0%, 100% { margin-left: -28px; } 30% { margin-left: -48px; } 70% { margin-left: -8px; } }
 .ba-tag { position: absolute; top: 12px; background: var(--green-3); color: var(--white); font-weight: 900; font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; padding: 5px 10px; border-radius: 8px; pointer-events: none; }
 .ba-tag-b { left: 12px; }
 .ba-tag-a { right: 12px; background: var(--lime); color: var(--green-3); }
@@ -406,4 +412,4 @@ section { padding: 92px 0; }
   .seal span { inset: 34px; font-size: 2.1rem; }
   .seal small { font-size: .62rem; letter-spacing: .06em; }
 }
-@media (prefers-reduced-motion: reduce) { .seal svg { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .seal svg, .ba.hint .ba-handle { animation: none; } }
