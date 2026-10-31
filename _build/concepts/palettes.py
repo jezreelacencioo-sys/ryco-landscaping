@@ -7,9 +7,9 @@ from common import ROOT
 # slug, name, description, accent, accent-d (shadow), accent-h (hover), on-accent (text on it), accent-ink (accent as text on dark),
 # and optionally extra CSS for that palette
 PALETTES = [
-    ('sunshine-yellow', 'Sunshine Yellow (current)', 'What the live site uses now. Warm and energetic.',
+    ('sunshine-yellow', 'Sunshine Yellow', 'The previous accent. Warm and energetic.',
      '#ffc20e', '#c99500', '#ffd04a', '#073a1b', '#ffc20e'),
-    ('fresh-lime', 'All Green', 'No second color, just your greens. A brighter lime takes the yellow\'s place, so everything matches the logo.',
+    ('fresh-lime', 'All Green (live)', 'Chosen for the live site. No second color, just your greens. A brighter lime takes the yellow\'s place, so everything matches the logo.',
      '#a6e35f', '#6fae32', '#b9ec7c', '#073a1b', '#a6e35f'),
     ('carolina-blue', 'Carolina Blue', 'A sky blue accent. Fresh and clean, with a nod to North Carolina.',
      '#6ec1f5', '#3a8ccc', '#8fd0f8', '#062b44', '#8fd0f8'),
