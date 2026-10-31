@@ -15,6 +15,10 @@ B = BUSINESS
 TEL = 'tel:' + B['phone_e164']
 SMS = 'sms:' + B['phone_e164']
 MAILTO = 'mailto:' + B['email']
+# Jobber online request form (Settings > Requests > Share options > embed code)
+JOBBER_ID = '7ea5991d-35bb-4ac8-a15b-5a38ffa0126a-4514703'
+JOBBER_FORM_URL = ('https://clienthub.getjobber.com/client_hubs/7ea5991d-35bb-4ac8-a15b-5a38ffa0126a'
+                   '/public/work_request/embedded_work_request_form?form_id=4514703')
 SVC = {s['slug']: s for s in SERVICES}
 TOWN = {t['slug']: t for t in TOWNS}
 SITEMAP = []
@@ -846,34 +850,16 @@ def build_contact():
     options = ''.join(f'<option>{e(s["name"])}</option>' for s in SERVICES)
     towns = ''.join(f'<option>{t["name"]}</option>' for t in TOWNS)
     body = page_hero('work/backyard-walkway.jpg', 'Contact us', 'Get Your <span class="hl">Free Estimate</span>',
-                     "Fill out the form and we'll get back to you with a price. You'll get a confirmation email right away.", crumbs, buttons=False) + f'''<section class="off">
+                     "Send us a request and we'll get back to you to set up your free estimate. Prefer to talk? Call or text anytime.", crumbs, buttons=False) + f'''<section class="off">
   <div class="wrap contact-grid">
-    <form class="form reveal" action="https://formsubmit.co/{B["email"]}" method="POST">
+    <div class="form jobber-form reveal">
       <h2>Book a free estimate</h2>
-      <input type="hidden" name="_subject" value="New estimate request from your website">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="{SITE}/thank-you/">
-      <input type="hidden" name="_autoresponse" value="Thanks for reaching out to Carolina Premier Lawn &amp; Tree Services! We got your estimate request and will get back to you soon with a price. Need us sooner? Call or text {B["phone"]}.">
-      <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <label>Your name <input name="name" required autocomplete="name"></label>
-      <div class="row">
-        <label>Email <input name="email" type="email" required autocomplete="email"></label>
-        <label>Phone <input name="phone" type="tel" required autocomplete="tel"></label>
-      </div>
-      <label>Property address <input name="address" required autocomplete="street-address"></label>
-      <div class="row">
-        <label>Town <select name="town">{towns}<option>Other</option></select></label>
-        <label>Service needed <select name="service">{options}<option>Something else</option></select></label>
-      </div>
-      <div class="row">
-        <label>Preferred date (optional) <input name="preferred_date" type="date"></label>
-        <label>Preferred time (optional) <select name="preferred_time"><option>No preference</option><option>Morning (8–11)</option><option>Midday (11–2)</option><option>Afternoon (2–5)</option></select></label>
-      </div>
-      <label>Details (optional) <textarea name="details" rows="4" placeholder="Yard size, timing, anything we should know"></textarea></label>
-      <button class="btn btn-lime" type="submit">Send My Request</button>
-      <p class="form-note">You'll get a confirmation email as soon as you send this. Prefer to talk? Call or text <a href="{TEL}">{B["phone"]}</a>.</p>
-    </form>
+      <p class="form-note">Fill out the form below and your request goes straight to our scheduling system. We'll get back to you with a time for your free estimate.</p>
+      <div id="{JOBBER_ID}"></div>
+      <link rel="stylesheet" href="https://d3ey4dbjkt2f6s.cloudfront.net/assets/external/work_request_embed.css" media="screen">
+      <script src="https://d3ey4dbjkt2f6s.cloudfront.net/assets/static_link/work_request_embed_snippet.js" clienthub_id="{JOBBER_ID}" form_url="{JOBBER_FORM_URL}"></script>
+      <p class="form-note">Form not loading? Call or text <a href="{TEL}">{B["phone"]}</a> or email <a href="{MAILTO}">{B["email"]}</a>.</p>
+    </div>
     <div class="info-card reveal">
       <div><h3>Call us</h3><a href="{TEL}">{B["phone"]}</a></div>
       <div><h3>Text us</h3><a href="{SMS}">{B["phone"]}</a></div>
@@ -889,19 +875,6 @@ def build_contact():
     page('contact/', 'Free Estimate | Contact Carolina Premier Lawn & Tree, Apex NC',
          'Get a free estimate for lawn care, tree services or landscaping in Apex, NC and the Triangle. Call or text (984) 381-8731 or send a request online.',
          body, schema=[crumbs_ld(crumbs)], preload='work/backyard-walkway.jpg')
-
-
-def build_thanks():
-    body = page_hero('work/backyard-walkway.jpg', 'Request received', 'Thanks! We got <span class="hl">your request</span>',
-                     "We'll get back to you soon with a price. Check your inbox for a confirmation email (and your spam folder, just in case).", buttons=False) + f'''<section class="off">
-  <div class="wrap"><div class="coming-soon reveal">
-    <h2>Need us <span class="hl">sooner?</span></h2>
-    <p>Call or text {B["phone"]} and we'll take it from there.</p>
-    <div class="actions" style="justify-content:center"><a class="btn btn-lime" href="{TEL}">Call {B["phone"]}</a><a class="btn btn-outline" href="~/">Back to Home</a></div>
-  </div></div>
-</section>
-'''
-    page('thank-you/', 'Thank You | Carolina Premier Lawn & Tree', 'Thanks for your estimate request.', body, index=False)
 
 
 def build_guides():
@@ -974,7 +947,7 @@ def build_sitemap():
     (ROOT / 'robots.txt').write_text(f'User-agent: *\nAllow: /\nDisallow: /_build/\nDisallow: /concepts/\n\nSitemap: {SITE}/sitemap.xml\n')
 
 
-GENERATED = ['services', 'service-areas', 'projects', 'reviews', 'about', 'contact', 'lawn-care-guides', 'thank-you']
+GENERATED = ['services', 'service-areas', 'projects', 'reviews', 'about', 'contact', 'lawn-care-guides']
 
 if __name__ == '__main__':
     for d in GENERATED:
@@ -993,7 +966,6 @@ if __name__ == '__main__':
     build_reviews()
     build_about()
     build_contact()
-    build_thanks()
     build_guides()
     build_404()
     build_sitemap()
