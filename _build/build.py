@@ -850,8 +850,8 @@ def build_contact():
         <label>Service needed <select name="service">{options}<option>Something else</option></select></label>
       </div>
       <div class="row">
-        <label>Preferred estimate date <input name="preferred_date" type="date"></label>
-        <label>Preferred time <select name="preferred_time"><option>Any time</option><option>Morning (8–11)</option><option>Midday (11–2)</option><option>Afternoon (2–5)</option></select></label>
+        <label>Preferred date (optional) <input name="preferred_date" type="date"></label>
+        <label>Preferred time (optional) <select name="preferred_time"><option>No preference</option><option>Morning (8–11)</option><option>Midday (11–2)</option><option>Afternoon (2–5)</option></select></label>
       </div>
       <label>Details (optional) <textarea name="details" rows="4" placeholder="Yard size, timing, anything we should know"></textarea></label>
       <button class="btn btn-lime" type="submit">Send My Request</button>
