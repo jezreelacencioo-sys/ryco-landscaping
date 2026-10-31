@@ -296,7 +296,7 @@ SERVICES = [
         'short': 'Full-season holiday lighting: we supply the lights, install, maintain, take down and store them.',
         'img': 'christmas-lights',
         'title': 'Christmas Light Installation in Apex, NC',
-        'desc': 'Full-service Christmas light installation in Apex, Cary and the Triangle. We supply commercial-grade lights, install, maintain, take down and store them. Free mockups.',
+        'desc': 'Full-service Christmas light installation in Apex, Cary and the Triangle. We supply pro-grade lights, install, maintain, take down and store them. Free mockup.',
         'h1': 'Christmas Light <span class="hl">Installation</span>',
         'lead': 'A full holiday lighting package: we bring the lights, hang them, keep them glowing all season, then take them down and store them for next year.',
         'intro': [
