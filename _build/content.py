@@ -8,6 +8,7 @@ BUSINESS = {
     'short': 'Carolina Premier',
     'phone': '(984) 381-8731',
     'phone_e164': '+19843818731',
+    'email': 'carolinalawnservice1@gmail.com',
     'city': 'Apex',
     'state': 'NC',
     'rating': '5.0',

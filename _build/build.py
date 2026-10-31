@@ -14,6 +14,7 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 B = BUSINESS
 TEL = 'tel:' + B['phone_e164']
 SMS = 'sms:' + B['phone_e164']
+MAILTO = 'mailto:' + B['email']
 SVC = {s['slug']: s for s in SERVICES}
 TOWN = {t['slug']: t for t in TOWNS}
 SITEMAP = []
@@ -42,6 +43,7 @@ BUSINESS_LD = {
     'name': B['name'],
     'url': SITE + '/',
     'telephone': B['phone_e164'],
+    'email': B['email'],
     'logo': SITE + '/images/logo.png',
     'image': SITE + '/images/og-image.jpg',
     'address': {'@type': 'PostalAddress', 'addressLocality': B['city'], 'addressRegion': B['state'], 'addressCountry': 'US'},
@@ -128,7 +130,7 @@ def footer():
       <div>
         <a class="logo" href="~/">{LOGO}</a>
         <p>Lawn care, tree services and landscaping for homes in Apex, NC and the surrounding Triangle.</p>
-        <p><a class="footer-phone" href="{TEL}">{B["phone"]}</a><br>Apex, NC</p>
+        <p><a class="footer-phone" href="{TEL}">{B["phone"]}</a><br><a href="{MAILTO}">{B["email"]}</a><br>Apex, NC</p>
         <p><span class="stars">★★★★★</span> {B["rating"]} on Google · {B["review_count"]} reviews</p>
       </div>
       <div><h2 class="foot-h">Services</h2><ul>{svc}</ul></div>
@@ -389,7 +391,7 @@ def build_home():
     body = f'''<section class="hero" style="background-image:url('~/images/hero-home.jpg')">
   <div class="wrap">
     <div class="hero-copy">
-      <div class="eyebrow">Lawn · Landscape · Trees</div>
+      <div class="eyebrow">Landscaping · Hardscaping · Tree Services</div>
       <h1>Lawn &amp; Tree Care in <span class="hl">Apex, NC</span></h1>
       <p class="lead">Lawn care, landscaping, tree work and hardscaping for a healthier, better-looking property all year long. 100% insured.</p>
       <div class="actions">
@@ -792,23 +794,34 @@ def build_contact():
     options = ''.join(f'<option>{e(s["name"])}</option>' for s in SERVICES)
     towns = ''.join(f'<option>{t["name"]}</option>' for t in TOWNS)
     body = page_hero('lawn.jpg', 'Contact us', 'Get Your <span class="hl">Free Estimate</span>',
-                     "Fill out the form and it opens a text to us, or just call. We'll get back to you with a price.", crumbs, buttons=False) + f'''<section class="off">
+                     "Fill out the form and we'll get back to you with a price. You'll get a confirmation email right away.", crumbs, buttons=False) + f'''<section class="off">
   <div class="wrap contact-grid">
-    <form class="form reveal" id="quote-form">
+    <form class="form reveal" action="https://formsubmit.co/{B["email"]}" method="POST">
       <h2>Request an estimate</h2>
+      <input type="hidden" name="_subject" value="New estimate request from your website">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="{SITE}/thank-you/">
+      <input type="hidden" name="_autoresponse" value="Thanks for reaching out to Carolina Premier Lawn &amp; Tree Services! We got your estimate request and will get back to you soon with a price. Need us sooner? Call or text {B["phone"]}.">
+      <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off" aria-hidden="true">
       <label>Your name <input name="name" required autocomplete="name"></label>
+      <div class="row">
+        <label>Email <input name="email" type="email" required autocomplete="email"></label>
+        <label>Phone <input name="phone" type="tel" required autocomplete="tel"></label>
+      </div>
       <label>Property address <input name="address" required autocomplete="street-address"></label>
       <div class="row">
         <label>Town <select name="town">{towns}<option>Other</option></select></label>
         <label>Service needed <select name="service">{options}<option>Something else</option></select></label>
       </div>
       <label>Details (optional) <textarea name="details" rows="4" placeholder="Yard size, timing, anything we should know"></textarea></label>
-      <button class="btn btn-lime" type="submit">Send by Text</button>
-      <p class="form-note">This opens your phone's texting app with your request filled in. On a computer? Call us at <a href="{TEL}">{B["phone"]}</a>.</p>
+      <button class="btn btn-lime" type="submit">Send My Request</button>
+      <p class="form-note">You'll get a confirmation email as soon as you send this. Prefer to talk? Call or text <a href="{TEL}">{B["phone"]}</a>.</p>
     </form>
     <div class="info-card reveal">
       <div><h3>Call us</h3><a href="{TEL}">{B["phone"]}</a></div>
       <div><h3>Text us</h3><a href="{SMS}">{B["phone"]}</a></div>
+      <div><h3>Email us</h3><a class="email" href="{MAILTO}">{B["email"]}</a></div>
       <div><h3>Fully covered</h3><p>100% insured on every job</p></div>
       <div><h3>Service area</h3><p>Apex, Cary, Holly Springs, Fuquay-Varina, Morrisville and southwest Raleigh, NC</p></div>
       <div><h3>Reviews</h3><p><span class="stars">★★★★★</span> {B["rating"]} on Google from {B["review_count"]} reviews</p></div>
@@ -817,8 +830,21 @@ def build_contact():
 </section>
 {faq_block(HOME_FAQS[:2], title="Before you reach out", cls="")}'''
     page('contact/', 'Free Estimate | Contact Carolina Premier Lawn & Tree, Apex NC',
-         'Get a free estimate for lawn care, tree services or landscaping in Apex, NC and the Triangle. Call or text (984) 381-8731.',
+         'Get a free estimate for lawn care, tree services or landscaping in Apex, NC and the Triangle. Call or text (984) 381-8731 or send a request online.',
          body, schema=[crumbs_ld(crumbs)], preload='lawn.jpg')
+
+
+def build_thanks():
+    body = page_hero('lawn.jpg', 'Request received', 'Thanks! We got <span class="hl">your request</span>',
+                     "We'll get back to you soon with a price. Check your inbox for a confirmation email (and your spam folder, just in case).", buttons=False) + f'''<section class="off">
+  <div class="wrap"><div class="coming-soon reveal">
+    <h2>Need us <span class="hl">sooner?</span></h2>
+    <p>Call or text {B["phone"]} and we'll take it from there.</p>
+    <div class="actions" style="justify-content:center"><a class="btn btn-lime" href="{TEL}">Call {B["phone"]}</a><a class="btn btn-outline" href="~/">Back to Home</a></div>
+  </div></div>
+</section>
+'''
+    page('thank-you/', 'Thank You | Carolina Premier Lawn & Tree', 'Thanks for your estimate request.', body, index=False)
 
 
 def build_guides():
@@ -891,7 +917,7 @@ def build_sitemap():
     (ROOT / 'robots.txt').write_text(f'User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n')
 
 
-GENERATED = ['services', 'service-areas', 'projects', 'reviews', 'about', 'contact', 'lawn-care-guides']
+GENERATED = ['services', 'service-areas', 'projects', 'reviews', 'about', 'contact', 'lawn-care-guides', 'thank-you']
 
 if __name__ == '__main__':
     for d in GENERATED:
@@ -909,6 +935,7 @@ if __name__ == '__main__':
     build_reviews()
     build_about()
     build_contact()
+    build_thanks()
     build_guides()
     build_404()
     build_sitemap()

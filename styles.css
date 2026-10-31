@@ -300,6 +300,8 @@ section { padding: 92px 0; }
 .form .row > * { min-width: 0; }
 .form .btn { margin-top: 6px; }
 .form-note { font-size: .9rem; color: var(--muted); margin: 0; }
+.form .honey { position: absolute; left: -9999px; }
+.info-card a.email { font: 800 1.05rem Nunito, sans-serif; word-break: break-all; }
 .info-card { background: var(--green); color: var(--white); border: 4px solid var(--lime); border-radius: 24px; padding: 34px; display: grid; gap: 22px; transform: rotate(.8deg); }
 .info-card h3 { font-size: 1.8rem; margin: 0 0 4px; }
 .info-card a { color: var(--accent-ink); font: 1.5rem var(--fun); text-decoration: none; }
