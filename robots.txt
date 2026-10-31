@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jezreelacencioo-sys.github.io/ryco-landscaping/sitemap.xml

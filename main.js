@@ -17,6 +17,13 @@ const io = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
 
+// Before/after sliders on the projects page
+document.querySelectorAll('.ba input').forEach((input) => {
+  input.addEventListener('input', () => {
+    input.parentElement.style.setProperty('--pos', input.value + '%');
+  });
+});
+
 // Quote form: no server, so it opens a pre-filled text message to the business
 const form = document.querySelector('#quote-form');
 if (form) {
@@ -26,7 +33,7 @@ if (form) {
     const body = [
       "Hi! I'd like a free estimate.",
       'Name: ' + d.get('name'),
-      'Address: ' + d.get('address'),
+      'Address: ' + d.get('address') + ', ' + d.get('town'),
       'Service: ' + d.get('service'),
       d.get('details') ? 'Details: ' + d.get('details') : '',
     ].filter(Boolean).join('\n');
