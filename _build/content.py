@@ -25,7 +25,7 @@ TOWNS = [
     {
         'slug': 'apex-nc',
         'name': 'Apex',
-        'img': 'hero-home',
+        'img': 'work/hero',
         'lead': 'Apex is home base. We take care of lawns, trees and landscapes all over town, from established streets near downtown to the newest neighborhoods.',
         'intro': [
             'Known as "The Peak of Good Living," Apex has grown fast while keeping its small-town feel, from historic Salem Street downtown to newer neighborhoods spreading toward Jordan Lake and Holly Springs. Being based right here means we know these yards and can get to you quickly.',
@@ -45,7 +45,7 @@ TOWNS = [
     {
         'slug': 'cary-nc',
         'name': 'Cary',
-        'img': 'trees',
+        'img': 'work/crape-myrtle',
         'lead': 'Lawn care, tree trimming and landscaping for Cary homeowners, right next door to our Apex home base.',
         'intro': [
             'Cary is known for well-kept neighborhoods and beautiful mature trees. Communities like Preston, Lochmere and MacGregor Downs have big oaks, maples and pines that give the town its character, and that also means a lot of leaves and limbs to manage.',
@@ -65,7 +65,7 @@ TOWNS = [
     {
         'slug': 'holly-springs-nc',
         'name': 'Holly Springs',
-        'img': 'garden',
+        'img': 'work/sod-install',
         'lead': 'Helping Holly Springs homeowners turn young lawns into thick, healthy ones, and keep them that way.',
         'intro': [
             'Holly Springs is one of the fastest-growing towns in the Triangle, with new neighborhoods going up all the time alongside established communities like 12 Oaks and Sunset Ridge. A lot of those homes have lawns that are only a few years old.',
@@ -85,7 +85,7 @@ TOWNS = [
     {
         'slug': 'fuquay-varina-nc',
         'name': 'Fuquay-Varina',
-        'img': 'garden-path',
+        'img': 'work/pine-straw',
         'lead': 'Lawn and tree care for Fuquay-Varina homes, from bigger lots to brand-new subdivisions.',
         'intro': [
             'Fuquay-Varina mixes small-town history, like the downtown area around the Fuquay Mineral Spring, with fast growth and plenty of new subdivisions. Many properties here also have bigger lots and more trees than you find closer to Raleigh.',
@@ -105,7 +105,7 @@ TOWNS = [
     {
         'slug': 'morrisville-nc',
         'name': 'Morrisville',
-        'img': 'lawn',
+        'img': 'work/lawn-mowing',
         'lead': 'Dependable lawn care and landscaping for busy Morrisville homeowners.',
         'intro': [
             'Sitting between Research Triangle Park and RDU, Morrisville is full of busy professionals and families, with many homes in HOA communities like Breckenridge. Lots tend to be smaller, but expectations for how they look are high.',
@@ -125,7 +125,7 @@ TOWNS = [
     {
         'slug': 'raleigh-nc',
         'name': 'Raleigh',
-        'img': 'planting',
+        'img': 'work/red-mulch-bed',
         'lead': 'Lawn care, tree work and landscaping for Raleigh homeowners, especially in the southwest part of the city.',
         'intro': [
             'Raleigh is called the "City of Oaks" for good reason. Big hardwoods shade many of its neighborhoods, especially the established areas in southwest Raleigh closest to Apex and Cary.',
@@ -151,7 +151,7 @@ GUIDES = [
         'title': 'Fall Lawn Care Guide for Apex & the Triangle',
         'desc': 'A simple fall lawn care plan for tall fescue lawns in Apex, Cary and the Triangle: when to aerate, overseed, fertilize and clear leaves.',
         'h1': 'Fall Lawn Care Guide for <span class="hl">Apex &amp; the Triangle</span>',
-        'img': 'lawn',
+        'img': 'work/aeration',
         'summary': 'Fall is the most important season for tall fescue lawns. Here is what to do and when.',
         'body': '''
 <p>If you have a tall fescue lawn, and most homes in Apex and the Triangle do, fall is the season that matters most. Fescue is a cool-season grass. It struggles through the summer heat and does most of its real growing and recovering when temperatures drop in September and October. What you do now decides how your lawn looks next spring.</p>
@@ -188,7 +188,7 @@ GUIDES = [
         'title': 'Mulch vs. Pine Straw: Which Is Better?',
         'desc': 'Hardwood mulch or pine straw? Compare look, cost, how long each lasts, and which works best for North Carolina landscape beds.',
         'h1': 'Mulch vs. Pine Straw: <span class="hl">Which Is Better?</span>',
-        'img': 'garden-path',
+        'img': 'work/mulch-walkway',
         'summary': 'Both are great choices for Carolina landscapes. Here is how to pick.',
         'body': '''
 <p>Walk through any neighborhood in Apex or Cary and you will see both: dark hardwood mulch in some beds and golden pine straw in others. Both protect your plants and make the yard look finished. The right choice comes down to the look you want and the beds you have.</p>
@@ -220,7 +220,7 @@ GUIDES = [
         'title': 'When to Trim Trees in North Carolina',
         'desc': 'The best time to trim trees in North Carolina, when to act right away, and warning signs that a tree near your home may be dangerous.',
         'h1': 'When to Trim Trees in <span class="hl">North Carolina</span>',
-        'img': 'trees',
+        'img': 'work/tree-service',
         'summary': 'Timing matters for healthy trees. Safety problems should never wait.',
         'body': '''
 <p>Trees are a huge part of what makes the Triangle beautiful, and a big responsibility when they are growing over your house. Trimming at the right time keeps trees healthy. Knowing the warning signs keeps your family and your home safe.</p>
@@ -272,7 +272,13 @@ SOCIAL = {
 # ---------------------------------------------------------------- Reviews & projects
 # Add real Google reviews here, copied word for word. Leave empty to hide the section.
 # Example: {'name': 'Jane D.', 'text': 'Great work...', 'service': 'Lawn Mowing'}
-REVIEWS = []
+REVIEWS = [
+    {'name': 'Clara Robbins', 'service': 'Lawn Maintenance', 'text': "Carolina Premier Lawn & Tree does a great job. They mow, edge and blow our yard, trim the hedges. All their work is done professionally and timely. They are dependable and communicate with us if there's a change in their schedule and they are delayed. I highly recommend Jerry and his crew for all your landscape needs."},
+    {'name': 'Elise Diamond', 'service': 'Mulching', 'text': 'Jerry and his crew did an amazing job mulching my already mature gardens. He was quick to respond when I requested a quote; quoted a great price, in my mind, and was prompt and considerate. I will definitely be using Carolina Premier again. Thank you!'},
+    {'name': 'Brittany', 'text': 'Highly recommend Carolina Premier Lawn and Tree Services. They are reliable, affordable, and always responsive. They show up when they say they will, communicate well, and consistently do quality work.'},
+    {'name': 'Anushka Gupta', 'text': 'Great customer service and work. Absolutely will have them again.'},
+    {'name': 'Robert Cusick', 'text': 'Excellent service and helped me in a pinch when moving out of my house.'},
+]
 
 # Add real job photos here (files in images/projects/). Leave empty to show the
 # "coming soon" message. 'before' is optional; when present a before/after slider is shown.
@@ -280,4 +286,24 @@ REVIEWS = []
 # Example: {'title': 'Backyard cleanup', 'town': 'Apex', 'service': 'landscaping', 'featured': True,
 #           'after': 'projects/cleanup-after.jpg', 'before': 'projects/cleanup-before.jpg',
 #           'text': 'Overgrown beds cleared, edged and finished with pine straw.'}
-PROJECTS = []
+PROJECTS = [
+    {'title': 'Flagstone Walkway Install', 'service': 'hardscaping', 'after': 'work/ba7-after.jpg', 'before': 'work/ba7-before.jpg', 'text': 'A new flagstone walkway set between fresh mulch beds.', 'featured': True},
+    {'title': 'Walkway Landscape Bed', 'service': 'landscaping', 'after': 'work/ba9-after.jpg', 'before': 'work/ba9-before.jpg', 'text': 'Bare dirt along a new walkway turned into a curved bed with plants and river rock border.', 'featured': True},
+    {'title': 'Hedge Trim & Lawn Cleanup', 'service': 'landscaping', 'after': 'work/ba1-after.jpg', 'before': 'work/ba1-before.jpg', 'text': 'Overgrown hedges trimmed into shape and the beds cleaned up.'},
+    {'title': 'Stone Planter Bed & Tree Install', 'service': 'landscaping', 'after': 'work/ba5-after.jpg', 'before': 'work/ba5-before.jpg', 'text': 'A stacked stone planter bed with a new tree and river rock.'},
+    {'title': 'Driveway Landscape Bed', 'service': 'landscaping', 'after': 'work/ba8-after.jpg', 'before': 'work/ba8-before.jpg', 'text': 'A new bed by the garage with a blue spruce, flowers and river rock.'},
+    {'title': 'River Rock Bed', 'service': 'landscaping', 'after': 'work/ba6-after.jpg', 'before': 'work/ba6-before.jpg', 'text': 'A river rock bed and plantings along a backyard stone wall.'},
+    {'title': 'Walkway Bed Cleanup', 'service': 'mulch-pine-straw', 'after': 'work/ba2-after.jpg', 'before': 'work/ba2-before.jpg', 'text': 'A weedy walkway bed cleaned out, edged and mulched.'},
+    {'title': 'Mulch Bed Install', 'service': 'mulch-pine-straw', 'after': 'work/ba4-after.jpg', 'before': 'work/ba4-before.jpg', 'text': 'Overgrown grass around an AC unit replaced with a clean mulch bed.'},
+    {'title': 'Bed Weeding & Mulch Refresh', 'service': 'mulch-pine-straw', 'after': 'work/ba10-after.jpg', 'before': 'work/ba10-before.jpg', 'text': 'An overgrown bed weeded, edged and refreshed with mulch.'},
+    {'title': 'Paver Walkway & Stone Border', 'service': 'hardscaping', 'after': 'work/backyard-walkway.jpg'},
+    {'title': 'Paver Patio', 'service': 'hardscaping', 'after': 'work/paver-patio.jpg'},
+    {'title': 'Fresh Red Mulch Bed', 'service': 'mulch-pine-straw', 'after': 'work/red-mulch-bed.jpg'},
+    {'title': 'Pine Straw Install', 'service': 'mulch-pine-straw', 'after': 'work/pine-straw.jpg'},
+    {'title': 'Hedge Trimming', 'service': 'landscaping', 'after': 'work/hedge-trim.jpg'},
+    {'title': 'Crape Myrtle Pruning', 'service': 'tree-services', 'after': 'work/crape-myrtle.jpg'},
+    {'title': 'Yard Cleanup', 'service': 'lawn-care', 'after': 'work/yard-cleanup.jpg'},
+    {'title': 'Sod Installation', 'service': 'sod-installation', 'after': 'work/sod-install.jpg'},
+    {'title': 'French Drain Install', 'service': 'drainage-solutions', 'after': 'work/drainage.jpg'},
+    {'title': 'River Rock Border', 'service': 'landscaping', 'after': 'work/river-rock.jpg'},
+]
