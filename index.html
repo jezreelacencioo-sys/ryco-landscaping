@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carolina Premier Lawn & Tree Services | Lawn Care in Apex, NC</title>
+<meta name="description" content="Carolina Premier Lawn & Tree Services LLC — lawn care, tree trimming and removal, cleanups and hardscaping in Apex, Cary, Holly Springs and the Triangle. Rated 5.0 on Google. Call (984) 381-8731.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LandscapingBusiness",
+  "name": "Carolina Premier Lawn & Tree Services LLC",
+  "telephone": "+1-984-381-8731",
+  "address": {"@type": "PostalAddress", "addressLocality": "Apex", "addressRegion": "NC", "addressCountry": "US"},
+  "areaServed": ["Apex", "Cary", "Holly Springs", "Fuquay-Varina", "Morrisville", "Raleigh"]
+}
+</script>
+<style>
+  :root {
+    --green-900: #13291d;
+    --green-700: #1f4a33;
+    --green-500: #3d7a52;
+    --cream: #f6f2e9;
+    --cream-2: #ece5d6;
+    --clay: #b8643c;
+    --ink: #1c1f1d;
+    --muted: #5b625d;
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; font-family: Inter, system-ui, sans-serif; color: var(--ink); background: var(--cream); line-height: 1.6; }
+  h1, h2, h3 { font-family: Fraunces, Georgia, serif; line-height: 1.15; margin: 0 0 .5em; }
+  a { color: inherit; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+
+  /* Header */
+  header { position: sticky; top: 0; z-index: 10; background: rgba(19, 41, 29, .96); color: var(--cream); }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+  .logo { font-family: Fraunces, serif; font-weight: 700; font-size: 1.15rem; text-decoration: none; white-space: nowrap; }
+  .logo span { color: #9cc9a6; }
+  nav { display: flex; gap: 24px; font-size: .95rem; }
+  nav a { text-decoration: none; opacity: .85; }
+  nav a:hover { opacity: 1; }
+  .btn { display: inline-block; padding: 12px 22px; border-radius: 999px; font-weight: 600; text-decoration: none; border: 2px solid transparent; }
+  .btn-clay { background: var(--clay); color: #fff; }
+  .btn-clay:hover { background: #a2552f; }
+  .btn-ghost { border-color: currentColor; }
+  header .btn { padding: 8px 16px; font-size: .9rem; white-space: nowrap; }
+
+  /* Hero */
+  .hero { background: var(--green-900); color: var(--cream); position: relative; overflow: hidden; }
+  .hero .wrap { padding-top: 88px; padding-bottom: 150px; position: relative; z-index: 1; }
+  .eyebrow { text-transform: uppercase; letter-spacing: .14em; font-size: .8rem; color: #9cc9a6; font-weight: 600; }
+  .hero h1 { font-size: clamp(2.3rem, 6vw, 4.2rem); max-width: 14ch; }
+  .hero p { font-size: 1.15rem; max-width: 52ch; opacity: .9; }
+  .hero .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+  .rating { display: inline-flex; align-items: center; gap: 8px; margin-top: 28px; font-size: .95rem; opacity: .9; text-decoration: none; }
+  .stars { color: #f2c14e; letter-spacing: 2px; }
+  .hills { position: absolute; left: 0; right: 0; bottom: -1px; width: 100%; height: 160px; }
+
+  /* Sections */
+  section { padding: 80px 0; }
+  .section-head { max-width: 640px; margin-bottom: 40px; }
+  .section-head h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); }
+  .section-head p { color: var(--muted); }
+
+  .grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+  .card { background: #fff; border-radius: var(--radius); padding: 28px; border: 1px solid var(--cream-2); }
+  .card h3 { font-size: 1.25rem; }
+  .card p { color: var(--muted); margin: 0; }
+  .icon { width: 44px; height: 44px; border-radius: 12px; background: #e3eee5; color: var(--green-700); display: grid; place-items: center; margin-bottom: 16px; }
+
+  .why { background: var(--green-700); color: var(--cream); }
+  .why .section-head p { color: #cfe0d3; }
+  .why-list { display: grid; gap: 28px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+  .why-list strong { font-family: Fraunces, serif; font-size: 2.4rem; display: block; color: #9cc9a6; }
+
+  .areas ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+  .areas li { background: #fff; border: 1px solid var(--cream-2); border-radius: 999px; padding: 10px 18px; font-weight: 500; }
+
+  .cta { background: var(--cream-2); text-align: center; }
+  .cta h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); }
+  .cta p { color: var(--muted); max-width: 52ch; margin: 0 auto 28px; }
+  .cta .actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+  .cta .btn-ghost { color: var(--green-700); }
+
+  footer { background: var(--green-900); color: #cfe0d3; padding: 40px 0; font-size: .9rem; }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; }
+
+  @media (max-width: 760px) {
+    nav { display: none; }
+    .logo { font-size: 1rem; }
+    section { padding: 60px 0; }
+    .hero .wrap { padding-top: 56px; padding-bottom: 120px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#">Carolina Premier <span>Lawn &amp; Tree</span></a>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#why">Why Us</a>
+      <a href="#areas">Service Areas</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn-clay" href="tel:+19843818731">Call Now</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div class="eyebrow">Lawn &amp; Tree Care · Apex, NC</div>
+      <h1>A yard you're proud to come home to.</h1>
+      <p>Carolina Premier Lawn &amp; Tree Services keeps lawns, trees and outdoor spaces across Apex and the Triangle looking their best, season after season.</p>
+      <div class="actions">
+        <a class="btn btn-clay" href="tel:+19843818731">Call (984) 381-8731</a>
+        <a class="btn btn-ghost" href="sms:+19843818731">Text for a Free Quote</a>
+      </div>
+      <a class="rating" href="https://www.google.com/search?q=Carolina+Premier+Lawn+%26+Tree+Services+LLC" target="_blank" rel="noopener">
+        <span class="stars">★★★★★</span> 5.0 on Google · 24 reviews
+      </a>
+    </div>
+    <svg class="hills" viewBox="0 0 1440 160" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 90 C 240 30 420 120 720 70 S 1200 20 1440 80 V160 H0Z" fill="#1f4a33"/>
+      <path d="M0 120 C 300 80 520 150 860 110 S 1280 90 1440 120 V160 H0Z" fill="#f6f2e9"/>
+    </svg>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow" style="color:var(--green-500)">What we do</div>
+        <h2>Lawn, tree and landscape services</h2>
+        <p>One crew for everything outside your home, from weekly mowing to tree removal.</p>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 20h18M6 20v-6M10 20V9M14 20v-7M18 20V6"/></svg></div>
+          <h3>Lawn Mowing &amp; Maintenance</h3>
+          <p>Mowing, edging, trimming and blowing on a weekly or bi-weekly schedule.</p>
+        </div>
+        <div class="card">
+          <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M7 8l5-5 5 5M5 14l7-6 7 6M4 20l8-7 8 7"/></svg></div>
+          <h3>Tree Trimming &amp; Removal</h3>
+          <p>Pruning, limb removal and safe takedowns for overgrown or storm-damaged trees.</p>
+        </div>
+        <div class="card">
+          <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/><path d="M12 8v8M8 12h8"/></svg></div>
+          <h3>Aeration &amp; Overseeding</h3>
+          <p>Fall core aeration and seeding to bring thin fescue lawns back thick and green.</p>
+        </div>
+        <div class="card">
+          <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 18c4-1 6-4 8-10 2 6 4 9 8 10"/><path d="M2 21h20"/></svg></div>
+          <h3>Mulch &amp; Pine Straw</h3>
+          <p>Fresh beds, crisp edges and weed control that make the whole yard look finished.</p>
+        </div>
+        <div class="card">
+          <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3c2 4 2 7 0 10s-2 6 0 8M18 3c-2 4-2 7 0 10s2 6 0 8M12 6v12"/></svg></div>
+          <h3>Leaf &amp; Seasonal Cleanups</h3>
+          <p>Spring and fall cleanups, leaf removal and storm debris hauled away.</p>
+        </div>
+        <div class="card">
+          <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 10h18M3 15h18M9 4v6M15 10v5M9 15v5"/></svg></div>
+          <h3>Hardscaping</h3>
+          <p>Patios, walkways and retaining walls built to handle North Carolina clay and rain.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="why" class="why">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Why homeowners choose us</div>
+        <h2>Local, reliable, and rated 5 stars</h2>
+        <p>We're a local Apex business that knows Triangle lawns, clay soil and all.</p>
+      </div>
+      <div class="why-list">
+        <div><strong>5.0★</strong>Average rating across 24 Google reviews</div>
+        <div><strong>1 call</strong>Lawn, trees and hardscape handled by one company</div>
+        <div><strong>Free</strong>Quotes on every job</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="areas" class="areas">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow" style="color:var(--green-500)">Where we work</div>
+        <h2>Serving Apex and the Triangle</h2>
+        <p>Based in Apex, we serve homes and businesses throughout southwest Wake County.</p>
+      </div>
+      <ul>
+        <li>Apex</li>
+        <li>Cary</li>
+        <li>Holly Springs</li>
+        <li>Fuquay-Varina</li>
+        <li>Morrisville</li>
+        <li>Raleigh</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact" class="cta">
+    <div class="wrap">
+      <h2>Get your free quote today</h2>
+      <p>Call or text us with your address and what you need. We'll get back to you quickly with a price.</p>
+      <div class="actions">
+        <a class="btn btn-clay" href="tel:+19843818731">Call (984) 381-8731</a>
+        <a class="btn btn-ghost" href="sms:+19843818731">Send a Text</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><strong>Carolina Premier Lawn &amp; Tree Services LLC</strong><br>Apex, NC · <a href="tel:+19843818731">(984) 381-8731</a></div>
+    <div>© <span id="y">2026</span> Carolina Premier Lawn &amp; Tree Services LLC</div>
+  </div>
+</footer>
+
+</body>
+</html>
