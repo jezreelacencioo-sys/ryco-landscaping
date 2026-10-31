@@ -9,6 +9,7 @@ BUSINESS = {
     'phone': '(984) 381-8731',
     'phone_e164': '+19843818731',
     'email': 'carolinalawnservice1@gmail.com',
+    'hours': 'Mon–Fri 7am–7pm · Sat 7am–5pm',
     'city': 'Apex',
     'state': 'NC',
     'rating': '5.0',
@@ -212,7 +213,7 @@ GUIDES = [
 <h2>The quick answer</h2>
 <p><strong>Choose pine straw</strong> for slopes, natural-looking beds and a classic Carolina look. <strong>Choose hardwood mulch</strong> for a darker, more formal look on flat beds where you want color that lasts.</p>
 ''',
-        'related_services': ['landscaping', 'lawn-care', 'hardscaping'],
+        'related_services': ['mulch-pine-straw', 'landscaping', 'hardscaping'],
     },
     {
         'slug': 'when-to-trim-trees-nc',

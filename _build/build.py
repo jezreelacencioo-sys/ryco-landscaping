@@ -44,6 +44,10 @@ BUSINESS_LD = {
     'url': SITE + '/',
     'telephone': B['phone_e164'],
     'email': B['email'],
+    'openingHoursSpecification': [
+        {'@type': 'OpeningHoursSpecification', 'dayOfWeek': ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], 'opens': '07:00', 'closes': '19:00'},
+        {'@type': 'OpeningHoursSpecification', 'dayOfWeek': 'Saturday', 'opens': '07:00', 'closes': '17:00'},
+    ],
     'logo': SITE + '/images/logo.png',
     'image': SITE + '/images/og-image.jpg',
     'address': {'@type': 'PostalAddress', 'addressLocality': B['city'], 'addressRegion': B['state'], 'addressCountry': 'US'},
@@ -81,8 +85,19 @@ def ba_media(p):
 </div>'''
 
 
+def has_combo(s, t):
+    return (s['slug'], t['slug']) in COMBOS
+
+
 def combo_path(s, t):
+    """The service-in-town page, or the main service page for services without town pages."""
+    if not has_combo(s, t):
+        return f'services/{s["slug"]}/'
     return f'service-areas/{t["slug"]}/{s["slug"]}/'
+
+
+def combo_label(s, t):
+    return f'{s["name"]} in {t["name"]}' if has_combo(s, t) else s['name']
 
 
 # ------------------------------------------------------------------ chrome
@@ -163,7 +178,7 @@ def footer():
       <div>
         <a class="logo" href="~/">{LOGO}</a>
         <p>Lawn care, tree services and landscaping for homes in Apex, NC and the surrounding Triangle.</p>
-        <p><a class="footer-phone" href="{TEL}">{B["phone"]}</a><br><a href="{MAILTO}">{B["email"]}</a><br>Apex, NC</p>
+        <p><a class="footer-phone" href="{TEL}">{B["phone"]}</a><br><a href="{MAILTO}">{B["email"]}</a><br>Apex, NC<br>{B["hours"]}</p>
         {social_links()}
         <p><span class="stars">★★★★★</span> {B["rating"]} on Google · {B["review_count"]} reviews</p>
       </div>
@@ -527,7 +542,8 @@ def build_service(s):
     items = '\n'.join(f'<div class="item reveal"><h3>{e(n)}</h3><p>{e(d)}</p></div>' for n, d in s['items'])
     related = svc_grid([o for o in SERVICES if o is not s][:3])
     area_links = '<ul class="towns">' + ''.join(
-        f'<li><a href="~/{combo_path(s, t)}">{e(s["name"])} in {t["name"]}</a></li>' for t in TOWNS) + '</ul>'
+        f'<li><a href="~/{combo_path(s, t)}">{e(s["name"])} in {t["name"]}</a></li>' if has_combo(s, t)
+        else f'<li><a href="~/service-areas/{t["slug"]}/">{t["name"]}, NC</a></li>' for t in TOWNS) + '</ul>'
     guides = [g for g in GUIDES if s['slug'] in g['related_services']]
     guide_html = ''
     if guides:
@@ -600,7 +616,7 @@ def build_combo(s, t):
     crumbs = [('Home', ''), ('Service Areas', 'service-areas/'), (f'{name}, NC', f'service-areas/{t["slug"]}/'), (s['name'], path)]
     body_html = ''.join(f'<p>{e(p)}</p>' for p in c['body'])
     includes = ''.join(f'<li>{e(n)}</li>' for n, _ in s['items'])
-    others = '\n'.join(f'''<a class="svc-link reveal" href="~/{combo_path(o, t)}"><b>{e(o["name"])} in {name}</b><span>{e(o["short"])}</span></a>'''
+    others = '\n'.join(f'''<a class="svc-link reveal" href="~/{combo_path(o, t)}"><b>{e(combo_label(o, t))}</b><span>{e(o["short"])}</span></a>'''
                        for o in SERVICES if o is not s)
     nearby = '<ul class="towns">' + ''.join(
         f'<li><a href="~/{combo_path(s, TOWN[n])}">{e(s["name"])} in {TOWN[n]["name"]}</a></li>' for n in t['nearby']) \
@@ -861,6 +877,7 @@ def build_contact():
       <div><h3>Call us</h3><a href="{TEL}">{B["phone"]}</a></div>
       <div><h3>Text us</h3><a href="{SMS}">{B["phone"]}</a></div>
       <div><h3>Email us</h3><a class="email" href="{MAILTO}">{B["email"]}</a></div>
+      <div><h3>Hours</h3><p>Mon–Fri 7 AM – 7 PM<br>Saturday 7 AM – 5 PM</p></div>
       <div><h3>Fully covered</h3><p>100% insured, and satisfaction guaranteed</p></div>
       <div><h3>Service area</h3><p>Apex, Cary, Holly Springs, Fuquay-Varina, Morrisville and southwest Raleigh, NC</p></div>
       <div><h3>Reviews</h3><p><span class="stars">★★★★★</span> {B["rating"]} on Google from {B["review_count"]} reviews</p></div>
@@ -969,7 +986,8 @@ if __name__ == '__main__':
     for t in TOWNS:
         build_town(t)
         for s in SERVICES:
-            build_combo(s, t)
+            if has_combo(s, t):
+                build_combo(s, t)
     build_projects()
     build_reviews()
     build_about()
