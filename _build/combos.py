@@ -478,4 +478,72 @@ COMBOS = {
             ('Is vinyl fencing good in shady yards?', 'Yes. Unlike wood, vinyl does not rot in damp, shady areas, though it may need an occasional rinse to keep it clean.'),
         ],
     },
+
+    # ------------------------------------------------------------ Mulch and pine straw
+    ('mulch-pine-straw', 'apex-nc'): {
+        'lead': 'Fresh mulch and pine straw for Apex homes, from new-construction beds to established neighborhoods.',
+        'body': [
+            'Most new homes in Apex come with a thin layer of builder mulch that fades and washes out within a season. We clear out what is left, pull the weeds, cut clean edges, and put down a full, even layer of hardwood mulch or pine straw so the beds look finished again.',
+            'In established neighborhoods like Scotts Mill and Beaver Creek, beds are bigger and often run under mature trees. Pine straw is a great fit there: it stays put on slopes, suits azaleas and hollies, and gives that classic Carolina look. We can also set you up for a spring and fall refresh so the beds never look tired.',
+        ],
+        'faqs': [
+            ('How much mulch does a typical Apex yard need?', 'It depends on the size of your beds. Most front yards in Apex take anywhere from a few yards of mulch to a couple dozen bales of pine straw. We measure during your free estimate and give you a clear price.'),
+            ('Does my Apex HOA care about mulch?', 'Many Apex HOAs expect beds to be weeded, edged and covered. A fresh layer once or twice a year is the easiest way to stay within those standards.'),
+        ],
+    },
+    ('mulch-pine-straw', 'cary-nc'): {
+        'lead': 'Mulch and pine straw installs for Cary yards, with beds that keep up with the neighborhood.',
+        'body': [
+            'Cary yards are known for looking sharp, and clean beds are a big part of that. Under the mature oaks and maples in neighborhoods like Preston and Lochmere, mulch breaks down faster and gets buried under leaves, so beds lose their color quickly.',
+            'We clear out leaves and old material, pull weeds, recut the edges and lay down fresh hardwood mulch or long-leaf pine straw. In shady beds where grass will not grow, a wider mulch or pine straw bed often looks better and is easier to keep up than fighting for lawn.',
+        ],
+        'faqs': [
+            ('Should I put mulch under my big trees?', 'Yes, a ring of mulch under trees protects the roots and keeps mowers away from the trunk. Just keep it 2 to 3 inches deep and pulled back from the bark, never piled against the trunk.'),
+            ('Pine straw or mulch for shady Cary yards?', 'Both work. Pine straw has a natural look that suits wooded lots, while hardwood mulch gives a darker, more formal finish. We can show you both during the estimate.'),
+        ],
+    },
+    ('mulch-pine-straw', 'holly-springs-nc'): {
+        'lead': 'Pine straw and mulch for Holly Springs homes, perfect for finishing off new-construction landscaping.',
+        'body': [
+            'New homes in Holly Springs usually come with small beds and a thin layer of mulch that does not last. A fresh install is one of the fastest, most affordable ways to make a new yard look finished and established.',
+            'Many lots here are graded with slopes toward the street or backyard, and regular mulch tends to wash out in summer storms. Pine straw knits together and stays put on slopes, so it is often the better choice. We also widen and reshape beds if you want more room for plants.',
+        ],
+        'faqs': [
+            ('Why does my mulch keep washing away?', 'Hardwood mulch floats and washes out on slopes during heavy rain. Pine straw holds together much better on sloped beds, and crisp edging helps keep material in place.'),
+            ('Can you make my beds bigger?', 'Yes. We can widen, reshape or add beds, then finish them with fresh mulch or pine straw at the same visit.'),
+        ],
+    },
+    ('mulch-pine-straw', 'fuquay-varina-nc'): {
+        'lead': 'Mulch and pine straw for Fuquay-Varina properties, including larger beds and long tree lines.',
+        'body': [
+            'Bigger lots in Fuquay-Varina often mean bigger beds: long borders along the driveway, islands around trees and natural areas along the woods. Covering that much ground by hand takes a whole weekend or more, and we can usually do it in a day.',
+            'Pine straw is especially popular here for natural areas and tree lines because it blends in with the woods and covers a lot of ground at a good price. Hardwood mulch is a great choice for the beds closest to the house where you want a cleaner, darker look.',
+        ],
+        'faqs': [
+            ('Is pine straw cheaper than mulch for large areas?', 'For big natural areas, pine straw often covers more ground for the cost and blends in well with wooded lots. We can price both options for your property.'),
+            ('Can you mulch around trees along my property line?', 'Yes. We clear the area, define the edge and cover it with pine straw or mulch so it looks intentional and is easier to maintain.'),
+        ],
+    },
+    ('mulch-pine-straw', 'morrisville-nc'): {
+        'lead': 'Clean, low-maintenance beds with fresh mulch for Morrisville homes and townhomes.',
+        'body': [
+            "In Morrisville's close-set neighborhoods, front beds are right on display, and faded mulch or weeds stand out fast. A fresh layer of mulch with sharp edges is one of the simplest ways to make a smaller yard look polished.",
+            'For busy homeowners, we keep it easy: we weed, edge and mulch in a single visit, and can come back each spring and fall to refresh it. Darker hardwood mulch is a popular choice in HOA communities because it looks clean and uniform.',
+        ],
+        'faqs': [
+            ('Do you mulch small yards and townhomes?', 'Yes. We handle beds of every size in Morrisville, including townhome and small-lot properties.'),
+            ('Will fresh mulch keep weeds down?', 'A 2 to 3 inch layer blocks a lot of weeds from sprouting, especially after the beds are weeded first. Some weeds will still pop up, so a refresh once or twice a year keeps them under control.'),
+        ],
+    },
+    ('mulch-pine-straw', 'raleigh-nc'): {
+        'lead': 'Mulch and pine straw for southwest Raleigh homes under the City of Oaks canopy.',
+        'body': [
+            'Southwest Raleigh yards sit under big oaks that drop leaves and acorns into the beds all fall. By spring, mulch is buried and faded, and beds start to blend into the lawn. A cleanup plus fresh mulch or pine straw brings them back to life.',
+            'Under large trees, a wide mulch or pine straw ring is often the best answer for bare dirt where grass will not grow. It protects the roots, keeps mowers off the trunk and gives the yard a cleaner look.',
+        ],
+        'faqs': [
+            ('When is the best time to mulch in Raleigh?', 'Spring is the most popular time, after the leaves are cleaned up. A fall refresh after leaf drop is also a great way to make beds look good through winter.'),
+            ('Can mulch go where grass will not grow?', 'Yes. Under heavy shade, a mulch or pine straw bed is often easier and better looking than trying to grow grass.'),
+        ],
+    },
 }
