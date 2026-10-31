@@ -9,6 +9,7 @@ import estate  # noqa: E402
 import field  # noqa: E402
 import garden  # noqa: E402
 import mix  # noqa: E402
+import palettes  # noqa: E402
 from common import ROOT  # noqa: E402
 
 CONCEPTS = [
@@ -44,6 +45,7 @@ h1 { font-size: clamp(2rem, 5vw, 3rem); margin: 0 0 8px; letter-spacing: -.02em;
 <div class="grid">
 CARDS
 </div>
+<p class="note"><b><a href="./colors/">Accent color options for the live design →</a></b></p>
 <p class="note">These concept pages are hidden from Google so they don't compete with the real site.</p>
 </div></body></html>
 '''
@@ -61,4 +63,5 @@ def review_page():
 for concept in (garden, carolina, estate, field, mix):
     concept.build()
 review_page()
+palettes.build()
 print('built concepts review page')
