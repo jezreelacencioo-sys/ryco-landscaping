@@ -8,9 +8,11 @@ import carolina  # noqa: E402
 import estate  # noqa: E402
 import field  # noqa: E402
 import garden  # noqa: E402
+import mix  # noqa: E402
 from common import ROOT  # noqa: E402
 
 CONCEPTS = [
+    ('premier-mix', 'E', 'Premier Mix (mockup)', 'NEWEST: home page mockup mixing the original site with concept D. Black, deep green, lime and yellow; bold condensed headlines with playful rounded accent words, spinning 5-star badge, grass edge, scrolling services strip, photo cards and dashed process.'),
     ('field-day', 'D', 'Field Day', 'NEW: bold and sporty, based on the example you sent. Deep green, bright lime and a yellow accent with tall condensed headlines, brush-stroke underlines, chunky outlined buttons, photo cards and a numbered process.'),
     ('garden-journal', 'A', 'Garden Journal', 'Warm and editorial. Cream, forest green and terracotta with an elegant serif. Arched photos, a numbered service list and a seasonal "year in your yard" calendar.'),
     ('carolina-blue', 'B', 'Carolina Blue', 'Clean, trustworthy and built to get quotes. Navy, Carolina blue and grass green. Quote form right in the hero, service icons, step-by-step process and stats.'),
@@ -38,7 +40,7 @@ h1 { font-size: clamp(2rem, 5vw, 3rem); margin: 0 0 8px; letter-spacing: -.02em;
 .note { margin-top: 40px; color: #5b625d; font-size: .95rem; }
 </style></head><body><div class="wrap">
 <h1>Website concepts</h1>
-<p class="intro">New designs built from the same business info, plus the current site for comparison. Each concept is a working site with a home page, all seven service pages, service areas, projects, reviews, about and contact. Open one and click around.</p>
+<p class="intro">New designs built from the same business info, plus the current site for comparison. Concepts A to D are working sites with a home page, all seven service pages, service areas, projects, reviews, about and contact. Concept E is a home page mockup.</p>
 <div class="grid">
 CARDS
 </div>
@@ -56,7 +58,7 @@ def review_page():
     (ROOT / 'concepts' / 'index.html').write_text(REVIEW_PAGE.replace('CARDS', '\n'.join(cards)))
 
 
-for concept in (garden, carolina, estate, field):
+for concept in (garden, carolina, estate, field, mix):
     concept.build()
 review_page()
 print('built concepts review page')
