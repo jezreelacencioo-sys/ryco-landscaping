@@ -54,7 +54,7 @@ def review_page():
 <div><span class="tag">Concept {letter}</span><h2>{name}</h2><p>{desc}</p><b>Open concept {letter} →</b></div></a>'''
              for slug, letter, name, desc in CONCEPTS]
     cards.append('''<a class="card" href="../"><img src="./assets/preview-current.jpg" alt="Current site" width="960" height="600">
-<div><span class="tag">For comparison</span><h2>Current site</h2><p>The live site: dark with lime green, playful rounded headlines, and all 66 pages including service-in-town pages.</p><b>Open current site →</b></div></a>''')
+<div><span class="tag">Live site</span><h2>Current site</h2><p>The live site, now rebuilt in the approved Premier Mix style (concept E) across all 66 pages.</p><b>Open live site →</b></div></a>''')
     (ROOT / 'concepts' / 'index.html').write_text(REVIEW_PAGE.replace('CARDS', '\n'.join(cards)))
 
 

@@ -85,7 +85,7 @@ def combo_path(s, t):
 
 LOGO = '<img src="~/images/logo.png" alt="Carolina Premier Lawn and Tree Services LLC" width="286" height="150">'
 
-GRASS = ('<div class="grass" aria-hidden="true"><svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path fill="#7ed957" d="M0 60 L0 34 '
+GRASS = ('<div class="grass" aria-hidden="true"><svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path fill="#86cf45" d="M0 60 L0 34 '
          + ' '.join(f'L{x} {y}' for x, y in zip(range(8, 1440, 8), [18, 32, 8, 30, 14, 32, 4, 30, 16, 34, 10, 32, 20, 34, 6, 30, 18, 34, 12, 32, 22, 34] * 9))
          + ' L1440 34 L1440 60 Z"/></svg></div>')
 
@@ -178,7 +178,7 @@ def page(path, title, desc, body, schema=(), og_img='og-image.jpg', preload=None
 <link rel="apple-touch-icon" href="~/images/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Lilita+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="~/styles.css">
 {pre}{ld(*schema)}
 </head>
@@ -227,7 +227,7 @@ def page_hero(image, eyebrow, h1, lead, crumbs=None, buttons=True):
 
 def svc_card(s):
     return f'''<a class="svc reveal" href="~/services/{s["slug"]}/">
-  {img(s["img"] + ".jpg")}
+  {img(s["img"] + ".jpg")}<span class="plus" aria-hidden="true">+</span>
   <div>
     <h3>{e(s["name"])}</h3>
     <p>{e(s["short"])}</p>
@@ -262,15 +262,21 @@ def faq_block(faqs, title='Common questions', eyebrow='FAQ', cls='off'):
 '''
 
 
+STEPS = [
+    ('Free Estimate', 'Call, text or request a quote online. We look at your property, talk through what you want and give you a clear, upfront price.'),
+    ('Scheduling', 'Pick a date for your project, or set up weekly or bi-weekly service for ongoing care.'),
+    ('The Work', 'Our crew handles it start to finish, done right for Triangle clay and weather.'),
+    ('Clean Up & Enjoy', 'We clean up, haul away the debris and leave the property looking sharp.'),
+]
+
+
 def steps_block():
-    return '''<section class="dark">
+    steps = ''.join(f'<details class="reveal"{" open" if i == 0 else ""}><summary><span class="n">{i + 1:02d}</span><h3>{t}</h3></summary><p>{e(d)}</p></details>'
+                    for i, (t, d) in enumerate(STEPS))
+    return f'''<section class="dark">
   <div class="wrap">
     <div class="section-head center reveal"><div class="eyebrow">How it works</div><h2>Getting started is <span class="hl">easy</span></h2></div>
-    <div class="steps">
-      <div class="step reveal"><h3>Call or text</h3><p>Tell us your address and what you need done.</p></div>
-      <div class="step reveal"><h3>Free estimate</h3><p>We look at the job and give you a clear price.</p></div>
-      <div class="step reveal"><h3>We get to work</h3><p>Sit back and enjoy a yard you're proud of.</p></div>
-    </div>
+    <div class="process">{steps}</div>
   </div>
 </section>
 '''
@@ -383,7 +389,7 @@ def build_home():
     body = f'''<section class="hero" style="background-image:url('~/images/hero-home.jpg')">
   <div class="wrap">
     <div class="hero-copy">
-      <div class="eyebrow">Carolina Premier Lawn &amp; Tree Services</div>
+      <div class="eyebrow">Lawn · Landscape · Trees</div>
       <h1>Lawn &amp; Tree Care in <span class="hl">Apex, NC</span></h1>
       <p class="lead">Lawn care, landscaping, tree work and hardscaping for a healthier, better-looking property all year long. 100% insured.</p>
       <div class="actions">
