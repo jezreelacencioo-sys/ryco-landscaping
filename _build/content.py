@@ -1,7 +1,7 @@
 """All site text and business facts. Edit here, then run: python3 _build/build.py"""
 
 # Change this when the site moves to its own domain (no trailing slash).
-SITE = 'https://jezreelacencioo-sys.github.io/ryco-landscaping'
+SITE = 'https://carolinapremierservices.org'
 
 BUSINESS = {
     'name': 'Carolina Premier Lawn & Tree Services LLC',

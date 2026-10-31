@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /_build/
+Disallow: /concepts/
 
-Sitemap: https://jezreelacencioo-sys.github.io/ryco-landscaping/sitemap.xml
+Sitemap: https://carolinapremierservices.org/sitemap.xml

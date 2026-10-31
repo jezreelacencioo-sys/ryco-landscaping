@@ -971,7 +971,7 @@ def build_sitemap():
     urls = '\n'.join(f'  <url><loc>{u}</loc><lastmod>2026-10-31</lastmod></url>' for u in SITEMAP)
     (ROOT / 'sitemap.xml').write_text(
         f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{urls}\n</urlset>\n')
-    (ROOT / 'robots.txt').write_text(f'User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n')
+    (ROOT / 'robots.txt').write_text(f'User-agent: *\nAllow: /\nDisallow: /_build/\nDisallow: /concepts/\n\nSitemap: {SITE}/sitemap.xml\n')
 
 
 GENERATED = ['services', 'service-areas', 'projects', 'reviews', 'about', 'contact', 'lawn-care-guides', 'thank-you']
