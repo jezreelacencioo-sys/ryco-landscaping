@@ -221,6 +221,7 @@ section { padding: 92px 0; }
 
 /* Projects */
 .projects { display: grid; gap: 26px; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); }
+.projects.home-ba { grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr)); }
 .project { margin: 0; background: var(--white); border-radius: var(--radius); overflow: hidden; border: 1px solid #dfe6e0; }
 .project > img, .ba { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
 .project figcaption { padding: 22px 24px; }
@@ -317,3 +318,10 @@ section { padding: 92px 0; }
   .projects { grid-template-columns: 1fr; }
   .cards, .guides, .svc-links, .town-grid { grid-template-columns: 1fr; }
 }
+
+/* Service item grid (category pages) */
+.items { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.item { background: var(--white); border-radius: var(--radius); padding: 26px; border: 1px solid #dfe6e0; border-top: 5px solid var(--lime); }
+.item h3 { font-size: 1.4rem; margin-bottom: .3em; }
+.item p { margin: 0; color: var(--muted); }
+.include-card > p { margin: 18px 0 0; font-weight: 700; }

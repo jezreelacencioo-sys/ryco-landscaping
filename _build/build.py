@@ -1,13 +1,14 @@
 """Builds the static site from content.py. Run from anywhere: python3 _build/build.py"""
 import json
 import pathlib
+import shutil
 import sys
 from html import escape
 
 from PIL import Image
 
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
-from content import SITE, BUSINESS, SERVICES, TOWNS, GUIDES, HOME_FAQS, REVIEWS, PROJECTS  # noqa: E402
+from content import SITE, BUSINESS, SERVICES, COMBOS, TOWNS, GUIDES, HOME_FAQS, REVIEWS, PROJECTS  # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 B = BUSINESS
@@ -63,6 +64,21 @@ def crumbs_ld(crumbs):
     return {'@type': 'BreadcrumbList', 'itemListElement': [
         {'@type': 'ListItem', 'position': i + 1, 'name': name, 'item': SITE + '/' + path}
         for i, (name, path) in enumerate(crumbs)]}
+
+
+def ba_media(p):
+    if not p.get('before'):
+        return img(p['after'], alt=p['title'])
+    return f'''<div class="ba" style="--pos:50%">
+  {img(p["after"], alt=p["title"] + " after")}
+  <div class="ba-before">{img(p["before"], alt=p["title"] + " before")}</div>
+  <input type="range" min="0" max="100" value="50" aria-label="Drag to compare before and after">
+  <span class="ba-tag ba-tag-b">Before</span><span class="ba-tag ba-tag-a">After</span>
+</div>'''
+
+
+def combo_path(s, t):
+    return f'service-areas/{t["slug"]}/{s["slug"]}/'
 
 
 # ------------------------------------------------------------------ chrome
@@ -321,9 +337,33 @@ def ticker():
 
 BADGE = '''<div class="badge" aria-hidden="true">
   <svg viewBox="0 0 200 200"><defs><path id="circ" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs>
-  <text><textPath href="#circ" textLength="486" lengthAdjust="spacing">5-STAR RATED ✦ APEX, NC ✦ LAWN &amp; TREE ✦ </textPath></text></svg>
+  <text><textPath href="#circ" textLength="486" lengthAdjust="spacing">5-STAR RATED ✦ 100% INSURED ✦ APEX, NC ✦ </textPath></text></svg>
   <span>5.0<small>★★★★★</small></span>
 </div>'''
+
+
+def before_after_home():
+    featured = [p for p in PROJECTS if p.get('featured') and p.get('before')][:2]
+    if not featured:
+        return ''
+    items = '\n'.join(f'''<figure class="project reveal">
+  {ba_media(p)}
+  <figcaption><h3>{e(p["title"])}</h3><p class="meta">{e(p.get("town", ""))}</p></figcaption>
+</figure>''' for p in featured)
+    return f'''<section class="off">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Before &amp; after</div>
+      <h2>See the <span class="hl">difference</span></h2>
+      <p>Drag the slider to compare. These are real jobs we've done in the Triangle.</p>
+    </div>
+    <div class="projects home-ba">
+{items}
+    </div>
+    <div class="actions"><a class="btn btn-dark" href="~/projects/">See More Projects</a></div>
+  </div>
+</section>
+'''
 
 
 # ------------------------------------------------------------------ pages
@@ -336,7 +376,7 @@ def build_home():
     <div class="hero-copy">
       <div class="eyebrow">Carolina Premier Lawn &amp; Tree Services</div>
       <h1>Lawn &amp; Tree Care in <span class="hl">Apex, NC</span></h1>
-      <p class="lead">Professional lawn care, tree work and landscaping for a healthier, better-looking property all year long.</p>
+      <p class="lead">Lawn care, landscaping, tree work and hardscaping for a healthier, better-looking property all year long. 100% insured.</p>
       <div class="actions">
         <a class="btn btn-lime" href="~/contact/">Get a Free Estimate</a>
         <a class="btn btn-outline" href="~/services/">View Services</a>
@@ -349,8 +389,8 @@ def build_home():
 <div class="trust">
   <ul>
     <li>5 Stars on Google</li>
+    <li>100% Insured</li>
     <li>Free Estimates</li>
-    <li>Lawn &amp; Tree Experts</li>
   </ul>
 </div>
 {ticker()}
@@ -359,12 +399,12 @@ def build_home():
     <div class="section-head reveal">
       <div class="eyebrow">What we do</div>
       <h2>Everything your yard needs, <span class="hl">one call</span></h2>
-      <p>From weekly mowing to removing a problem tree, we take care of the whole property so you don't have to juggle different companies.</p>
+      <p>From weekly mowing to new patios, tree removal and even Christmas lights, we take care of the whole property so you don't have to juggle different companies.</p>
     </div>
     {services_cards}
   </div>
 </section>
-{reviews_band()}
+{before_after_home()}{reviews_band()}
 <section>
   <div class="wrap split">
     {img("garden-path.jpg", cls="reveal rounded")}
@@ -373,10 +413,10 @@ def build_home():
       <h2>Local crew. <span class="hl">Pro results.</span></h2>
       <p>We're based right here in Apex, so we know Triangle yards: the red clay, the summer heat and the fescue that needs extra care every fall.</p>
       <ul class="checks">
-        <li>Lawn care and tree work from one company</li>
+        <li>100% insured on every job</li>
+        <li>Lawn, landscape, tree and hardscape work from one company</li>
         <li>Free, no-pressure estimates</li>
         <li>Rated 5 stars on Google</li>
-        <li>Easy to reach by call or text</li>
       </ul>
       <a class="btn btn-lime" href="~/about/">About Us</a>
     </div>
@@ -408,14 +448,14 @@ def build_home():
     website = {'@type': 'WebSite', '@id': SITE + '/#website', 'url': SITE + '/', 'name': B['name'],
                'publisher': {'@id': SITE + '/#business'}}
     page('', 'Carolina Premier Lawn & Tree | Lawn Care in Apex, NC',
-         'Lawn mowing, tree trimming and removal, aeration, mulch and hardscaping in Apex, Cary, Holly Springs and the Triangle. 5-star rated. Call (984) 381-8731.',
+         'Lawn care, landscaping, tree removal, patios, fencing and Christmas lights in Apex, Cary, Holly Springs and the Triangle. 5-star rated, 100% insured.',
          body, schema=[website, faq_ld(HOME_FAQS)], preload='hero-home.jpg')
 
 
 def build_services_hub():
     crumbs = [('Home', ''), ('Services', 'services/')]
     body = page_hero('lawn.jpg', 'Our services', 'Lawn, Tree &amp; <span class="hl">Landscape</span> Services',
-                     'Everything outside your home, handled by one local, 5-star rated crew.', crumbs) + f'''<section>
+                     'Everything outside your home or property, handled by one local, 5-star rated and 100% insured crew.', crumbs) + f'''<section>
   <div class="wrap">
     <div class="section-head reveal"><div class="eyebrow">Pick a service</div><h2>What can we <span class="hl">help with?</span></h2></div>
     {svc_grid(SERVICES)}
@@ -423,7 +463,7 @@ def build_services_hub():
 </section>
 {steps_block()}{reviews_band()}{cta_band()}'''
     page('services/', 'Lawn, Tree & Landscaping Services in Apex, NC | Carolina Premier',
-         'Lawn mowing, tree trimming and removal, aeration and overseeding, mulch and pine straw, seasonal cleanups and hardscaping in Apex, NC and the Triangle.',
+         'Lawn care, landscaping, tree services, hardscaping and fencing, Christmas lighting and commercial and HOA maintenance in Apex, NC and the Triangle.',
          body, schema=[crumbs_ld(crumbs)], preload='lawn.jpg')
 
 
@@ -432,10 +472,10 @@ def build_service(s):
     crumbs = [('Home', ''), ('Services', 'services/'), (s['name'], path)]
     intro = ''.join(f'<p>{e(p)}</p>' for p in s['intro'])
     local = ''.join(f'<p>{e(p)}</p>' for p in s['local'])
-    includes = ''.join(f'<li>{e(i)}</li>' for i in s['includes'])
-    related = svc_grid([SVC[r] for r in s['related']])
+    items = '\n'.join(f'<div class="item reveal"><h3>{e(n)}</h3><p>{e(d)}</p></div>' for n, d in s['items'])
+    related = svc_grid([o for o in SERVICES if o is not s][:3])
     area_links = '<ul class="towns">' + ''.join(
-        f'<li><a href="~/service-areas/{t["slug"]}/">{t["name"]}, NC</a></li>' for t in TOWNS) + '</ul>'
+        f'<li><a href="~/{combo_path(s, t)}">{e(s["name"])} in {t["name"]}</a></li>' for t in TOWNS) + '</ul>'
     guides = [g for g in GUIDES if s['slug'] in g['related_services']]
     guide_html = ''
     if guides:
@@ -450,14 +490,22 @@ def build_service(s):
   <div class="wrap split top">
     <div class="reveal prose">
       <div class="eyebrow">{e(s["name"])}</div>
-      <h2>Done right, <span class="hl">every visit</span></h2>
+      <h2>Done right, <span class="hl">every time</span></h2>
       {intro}
     </div>
     <aside class="include-card reveal">
-      <h3>What's included</h3>
-      <ul class="checks">{includes}</ul>
+      <h3>Why us</h3>
+      <ul class="checks"><li>100% insured</li><li>5.0 stars on Google</li><li>Free estimates</li><li>Local to Apex</li></ul>
       <a class="btn btn-lime" href="~/contact/">Get a Free Estimate</a>
     </aside>
+  </div>
+</section>
+<section class="off">
+  <div class="wrap">
+    <div class="section-head reveal"><div class="eyebrow">What we offer</div><h2>{e(s["name"])} <span class="hl">services</span></h2></div>
+    <div class="items">
+{items}
+    </div>
   </div>
 </section>
 <section class="dark">
@@ -473,7 +521,7 @@ def build_service(s):
 {steps_block().replace('class="dark"', 'class=""', 1)}{reviews_band()}{faq_block(s["faqs"], title=e(s["name"]) + " FAQ")}<section>
   <div class="wrap">
     <div class="section-head reveal"><div class="eyebrow">Service areas</div><h2>{e(s["name"])} <span class="hl">near you</span></h2>
-    <p>We provide {e(s["name"].lower())} throughout Apex and these nearby towns.</p></div>
+    <p>Pick your town to see our {e(s["name"])} services there.</p></div>
     {area_links}
   </div>
 </section>
@@ -486,15 +534,71 @@ def build_service(s):
 {guide_html}{cta_band()}'''
     service_ld = {'@type': 'Service', 'name': s['name'], 'serviceType': s['name'], 'description': s['short'],
                   'url': SITE + '/' + path, 'provider': {'@id': SITE + '/#business'},
-                  'areaServed': [{'@type': 'City', 'name': f"{t['name']}, NC"} for t in TOWNS]}
+                  'areaServed': [{'@type': 'City', 'name': f"{t['name']}, NC"} for t in TOWNS],
+                  'hasOfferCatalog': {'@type': 'OfferCatalog', 'name': s['name'], 'itemListElement': [
+                      {'@type': 'Offer', 'itemOffered': {'@type': 'Service', 'name': n, 'description': d}} for n, d in s['items']]}}
     page(path, s['title'] + ' | Carolina Premier', s['desc'], body,
          schema=[service_ld, faq_ld(s['faqs']), crumbs_ld(crumbs)], preload=s['img'] + '.jpg')
+
+
+def build_combo(s, t):
+    path = combo_path(s, t)
+    c = COMBOS[(s['slug'], t['slug'])]
+    name = t['name']
+    crumbs = [('Home', ''), ('Service Areas', 'service-areas/'), (f'{name}, NC', f'service-areas/{t["slug"]}/'), (s['name'], path)]
+    body_html = ''.join(f'<p>{e(p)}</p>' for p in c['body'])
+    includes = ''.join(f'<li>{e(n)}</li>' for n, _ in s['items'])
+    others = '\n'.join(f'''<a class="svc-link reveal" href="~/{combo_path(o, t)}"><b>{e(o["name"])} in {name}</b><span>{e(o["short"])}</span></a>'''
+                       for o in SERVICES if o is not s)
+    nearby = '<ul class="towns">' + ''.join(
+        f'<li><a href="~/{combo_path(s, TOWN[n])}">{e(s["name"])} in {TOWN[n]["name"]}</a></li>' for n in t['nearby']) \
+        + f'<li><a href="~/services/{s["slug"]}/">All {e(s["name"])}</a></li></ul>'
+    who = 'properties' if s['slug'] == 'commercial-hoa' else 'homes'
+    body = page_hero(s['img'] + '.jpg', f'{name}, NC', f'{e(s["name"])} in <span class="hl">{name}, NC</span>',
+                     e(c['lead']), crumbs) + f'''<section>
+  <div class="wrap split top">
+    <div class="reveal prose">
+      <div class="eyebrow">{e(s["name"])} in {name}</div>
+      <h2>Serving {name} <span class="hl">{who}</span></h2>
+      {body_html}
+      <a class="btn btn-lime" href="~/contact/">Get a Free Estimate</a>
+    </div>
+    <aside class="include-card reveal">
+      <h3>What we offer</h3>
+      <ul class="checks">{includes}</ul>
+      <p>100% insured · 5.0 stars on Google</p>
+    </aside>
+  </div>
+</section>
+{faq_block(c["faqs"], title=f"{e(s['name'])} in {name}: FAQ")}{reviews_band()}<section>
+  <div class="wrap">
+    <div class="section-head reveal"><div class="eyebrow">More in {name}</div><h2>Other services in <span class="hl">{name}</span></h2></div>
+    <div class="svc-links">
+{others}
+    </div>
+  </div>
+</section>
+<section class="off">
+  <div class="wrap">
+    <div class="section-head reveal"><div class="eyebrow">Nearby</div><h2>{e(s["name"])} in <span class="hl">nearby towns</span></h2></div>
+    {nearby}
+  </div>
+</section>
+{cta_band(f"Get a free estimate in {name}")}'''
+    service_ld = {'@type': 'Service', 'name': f'{s["name"]} in {name}, NC', 'serviceType': s['name'],
+                  'description': c['lead'], 'url': SITE + '/' + path, 'provider': {'@id': SITE + '/#business'},
+                  'areaServed': {'@type': 'City', 'name': f'{name}, NC'}}
+    title = f'{s["name"]} in {name}, NC | Carolina Premier'
+    if len(title) > 65:
+        title = f'{s["name"]} in {name}, NC'
+    page(path, title, f'{c["lead"]} Free estimates: {B["phone"]}.', body,
+         schema=[service_ld, faq_ld(c['faqs']), crumbs_ld(crumbs)], preload=s['img'] + '.jpg')
 
 
 def build_areas_hub():
     crumbs = [('Home', ''), ('Service Areas', 'service-areas/')]
     cards = '\n'.join(f'''<a class="town-card reveal" href="~/service-areas/{t["slug"]}/">
-  <h3>{t["name"]}, NC</h3><p>{e(t["lead"])}</p><span class="more">Lawn care in {t["name"]} →</span>
+  <h3>{t["name"]}, NC</h3><p>{e(t["lead"])}</p><span class="more">Services in {t["name"]} →</span>
 </a>''' for t in TOWNS)
     body = page_hero('trees.jpg', 'Where we work', 'Serving Apex &amp; the <span class="hl">Triangle</span>',
                      'Based in Apex, we serve homeowners throughout southwest Wake County.', crumbs) + f'''<section class="dark">
@@ -523,7 +627,7 @@ def build_town(t):
     crumbs = [('Home', ''), ('Service Areas', 'service-areas/'), (f'{name}, NC', path)]
     intro = ''.join(f'<p>{e(p)}</p>' for p in t['intro'])
     challenges = '\n'.join(f'<div class="step reveal no-num"><h3>{e(h)}</h3><p>{e(p)}</p></div>' for h, p in t['challenges'])
-    svc_links = '\n'.join(f'''<a class="svc-link reveal" href="~/services/{s["slug"]}/"><b>{e(s["name"])}</b><span>{e(s["short"])}</span></a>''' for s in SERVICES)
+    svc_links = '\n'.join(f'''<a class="svc-link reveal" href="~/{combo_path(s, t)}"><b>{e(s["name"])}</b><span>{e(s["short"])}</span></a>''' for s in SERVICES)
     nearby = '<ul class="towns">' + ''.join(
         f'<li><a href="~/service-areas/{n}/">{TOWN[n]["name"]}, NC</a></li>' for n in t['nearby']) + '</ul>'
     body = page_hero(t['img'] + '.jpg', f'Serving {name}, NC', f'Lawn Care &amp; Tree Services in <span class="hl">{name}, NC</span>',
@@ -562,7 +666,7 @@ def build_town(t):
 </section>
 {cta_band(f"Need help with your {name} yard?")}'''
     page(path, f'Lawn Care & Tree Services in {name}, NC | Carolina Premier',
-         f'Lawn mowing, tree trimming and removal, aeration, mulch and seasonal cleanups for homes in {name}, NC. 5-star rated on Google. Free estimates: (984) 381-8731.',
+         f'Lawn care, landscaping, tree services, patios, fencing and Christmas lights in {name}, NC. 5-star rated and 100% insured. Free estimates: (984) 381-8731.',
          body, schema=[faq_ld(t['faqs']), crumbs_ld(crumbs)], preload=t['img'] + '.jpg')
 
 
@@ -571,15 +675,7 @@ def build_projects():
     if PROJECTS:
         items = []
         for p in PROJECTS:
-            if p.get('before'):
-                media = f'''<div class="ba" style="--pos:50%">
-  {img(p["after"], alt=p["title"] + " after")}
-  <div class="ba-before">{img(p["before"], alt=p["title"] + " before")}</div>
-  <input type="range" min="0" max="100" value="50" aria-label="Drag to compare before and after">
-  <span class="ba-tag ba-tag-b">Before</span><span class="ba-tag ba-tag-a">After</span>
-</div>'''
-            else:
-                media = img(p['after'], alt=p['title'])
+            media = ba_media(p)
             svc = SVC.get(p.get('service'))
             svc_link = f' · <a href="~/services/{svc["slug"]}/">{e(svc["name"])}</a>' if svc else ''
             items.append(f'''<figure class="project reveal">
@@ -698,6 +794,7 @@ def build_contact():
     <div class="info-card reveal">
       <div><h3>Call us</h3><a href="{TEL}">{B["phone"]}</a></div>
       <div><h3>Text us</h3><a href="{SMS}">{B["phone"]}</a></div>
+      <div><h3>Fully covered</h3><p>100% insured on every job</p></div>
       <div><h3>Service area</h3><p>Apex, Cary, Holly Springs, Fuquay-Varina, Morrisville and southwest Raleigh, NC</p></div>
       <div><h3>Reviews</h3><p><span class="stars">★★★★★</span> {B["rating"]} on Google from {B["review_count"]} reviews</p></div>
     </div>
@@ -779,7 +876,11 @@ def build_sitemap():
     (ROOT / 'robots.txt').write_text(f'User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n')
 
 
+GENERATED = ['services', 'service-areas', 'projects', 'reviews', 'about', 'contact', 'lawn-care-guides']
+
 if __name__ == '__main__':
+    for d in GENERATED:
+        shutil.rmtree(ROOT / d, ignore_errors=True)
     build_home()
     build_services_hub()
     for s in SERVICES:
@@ -787,6 +888,8 @@ if __name__ == '__main__':
     build_areas_hub()
     for t in TOWNS:
         build_town(t)
+        for s in SERVICES:
+            build_combo(s, t)
     build_projects()
     build_reviews()
     build_about()

@@ -15,201 +15,8 @@ BUSINESS = {
     'google_url': 'https://www.google.com/search?q=Carolina+Premier+Lawn+%26+Tree+Services+LLC',
 }
 
-# ---------------------------------------------------------------- Services
-# img: file in images/ (without .jpg). Placeholder photos until real job photos arrive.
-SERVICES = [
-    {
-        'slug': 'lawn-mowing',
-        'name': 'Lawn Mowing & Maintenance',
-        'short': 'Weekly or bi-weekly mowing, edging, trimming and blowing so your yard looks sharp all season.',
-        'img': 'lawn',
-        'title': 'Lawn Mowing & Lawn Care in Apex, NC',
-        'desc': 'Reliable weekly and bi-weekly lawn mowing, edging and trimming in Apex, Cary, Holly Springs and the Triangle. 5-star rated. Free estimates: (984) 381-8731.',
-        'h1': 'Lawn Mowing &amp; Maintenance in <span class="hl">Apex, NC</span>',
-        'lead': 'A clean cut, sharp edges and a yard you never have to think about. We keep Triangle lawns looking their best on a schedule that fits your property.',
-        'intro': [
-            'Regular mowing is the single biggest thing you can do for how your yard looks, and doing it right is the biggest thing you can do for how healthy it stays. Our maintenance visits cover the full job: mowing, edging, trimming and cleanup, so the whole property looks finished when we drive away.',
-            'We set the mowing height for your grass type and the season instead of cutting every lawn the same way. That means thicker turf, fewer weeds and a lawn that holds up better through a hot North Carolina summer.',
-        ],
-        'includes': [
-            'Mowing at the right height for your grass type',
-            'Edging along driveways, sidewalks and curbs',
-            'String trimming around beds, fences and mailboxes',
-            'Clippings blown off every hard surface',
-            'Weekly or bi-weekly visits through the growing season',
-        ],
-        'local_title': 'Mowing for Triangle lawns',
-        'local': [
-            'Most lawns in Apex and the surrounding towns are tall fescue, a cool-season grass that stays healthiest when it is mowed tall, around 3 to 4 inches, especially in July and August. Cutting fescue short in summer is one of the most common reasons it thins out and lets crabgrass take over.',
-            'Bermuda and zoysia lawns in full sun are a different story. They do best kept much shorter and grow fastest in the heat. Whichever you have, we cut it the way that grass wants to be cut.',
-        ],
-        'faqs': [
-            ('How often should my lawn be mowed?', 'During peak growing season most lawns look best mowed every week. In slower stretches, like the heat of late summer for fescue, every other week can be enough. We can set a schedule that fits your yard and budget.'),
-            ('What height should tall fescue be mowed in summer?', 'Keep tall fescue on the high side, around 3 to 4 inches, during the summer. Taller grass shades the soil, holds moisture and crowds out weeds. Avoid removing more than about a third of the blade in a single cut.'),
-            ('Should grass clippings be bagged?', 'Usually not. Clippings left on the lawn break down quickly and return nutrients to the soil. Bagging mostly makes sense when the grass has gotten very tall or before an event when you want a spotless look.'),
-        ],
-        'related': ['seasonal-cleanups', 'aeration-overseeding', 'mulch-pine-straw'],
-    },
-    {
-        'slug': 'tree-trimming-removal',
-        'name': 'Tree Trimming & Removal',
-        'short': 'Pruning, limb removal and safe takedowns for overgrown, dead or storm-damaged trees.',
-        'img': 'trees',
-        'title': 'Tree Trimming & Tree Removal in Apex, NC',
-        'desc': 'Tree trimming, limb removal and safe tree removal in Apex, Cary, Holly Springs and the Triangle. Storm cleanup and debris haul-away. Free estimates: (984) 381-8731.',
-        'h1': 'Tree Trimming &amp; <span class="hl">Tree Removal</span> in Apex, NC',
-        'lead': 'Overhanging limbs, dead trees and storm damage handled safely, with the mess cleaned up before we leave.',
-        'intro': [
-            'Trees are a big part of what makes Triangle neighborhoods beautiful, but a limb over the roof or a dead pine next to the house is a risk you should not have to live with. We trim, thin and remove trees so your property is safer and your yard gets the light it needs.',
-            'Every job ends with cleanup. Limbs, branches and debris are hauled away so you are left with a clean yard, not a brush pile.',
-        ],
-        'includes': [
-            'Pruning and thinning to improve shape and light',
-            'Limbs cut back from roofs, gutters and driveways',
-            'Removal of dead, dying or leaning trees',
-            'Storm damage cleanup',
-            'Debris and brush haul-away',
-        ],
-        'local_title': 'Trees in the Triangle',
-        'local': [
-            'Wake County is full of tall loblolly pines, oaks, maples and sweetgums, and many homes in Apex and Cary were built right among them. Summer thunderstorms and the remnants of tropical storms regularly bring down limbs and whole trees across the area.',
-            'The best time to prune most hardwoods is late fall through winter when they are dormant: you can see the branch structure and the tree heals well in spring. Dead limbs and hazardous trees, though, should be dealt with as soon as you notice them.',
-        ],
-        'faqs': [
-            ('When is the best time to trim trees in North Carolina?', 'For most shade trees, late fall through late winter is ideal because the tree is dormant and the branch structure is easy to see. Dead, broken or hazardous limbs can and should be removed any time of year.'),
-            ('How do I know if a tree is dangerous?', 'Warning signs include a tree that has started leaning recently, cracked or heaving soil at the base, large dead limbs, mushrooms growing on the trunk or roots, and deep cracks in the trunk. If you see any of these near your home, have it looked at soon.'),
-            ('Do I need a permit to remove a tree?', 'It depends on where you live. Many trees on private residential lots can be removed without a permit, but towns can have rules for buffers and certain properties, and many HOAs require approval. Check with your town and HOA before removing a large tree.'),
-        ],
-        'related': ['seasonal-cleanups', 'lawn-mowing', 'mulch-pine-straw'],
-    },
-    {
-        'slug': 'aeration-overseeding',
-        'name': 'Aeration & Overseeding',
-        'short': 'Fall core aeration and overseeding to bring thin, patchy fescue lawns back thick and green.',
-        'img': 'garden',
-        'title': 'Lawn Aeration & Overseeding in Apex, NC',
-        'desc': 'Core aeration and overseeding for tall fescue lawns in Apex, Cary, Holly Springs and the Triangle. Loosen compacted clay and thicken thin turf. Free estimates.',
-        'h1': 'Aeration &amp; <span class="hl">Overseeding</span> in Apex, NC',
-        'lead': 'The best thing you can do for a thin fescue lawn, done at the right time of year.',
-        'intro': [
-            'Core aeration pulls thousands of small plugs of soil out of your lawn. That relieves compaction and lets air, water and fertilizer reach the roots. Overseeding right after aeration drops new seed into those holes, where it has great contact with the soil and the best chance to grow.',
-            'Together they are the most effective way to thicken a thin or patchy fescue lawn and keep it from slowly wearing out year after year.',
-        ],
-        'includes': [
-            'Core aeration across the whole lawn',
-            'Overseeding with quality tall fescue seed',
-            'Extra seed on thin and bare spots',
-            'Watering instructions so the new seed takes',
-        ],
-        'local_title': 'Why Apex lawns need it',
-        'local': [
-            'Much of the Triangle sits on dense red clay, and it compacts easily, especially in newer neighborhoods where the topsoil was scraped away during construction. Compacted soil means shallow roots, puddles after rain and grass that struggles every summer.',
-            'For tall fescue, early fall is the best window: roughly late August through mid-October, with September ideal. The soil is still warm enough for fast germination and the cooler weather that follows lets young grass establish before winter. Warm-season lawns like Bermuda and zoysia are aerated in late spring or early summer instead.',
-        ],
-        'faqs': [
-            ('When should I aerate and overseed in Apex?', 'For tall fescue lawns, early fall is best, roughly late August through mid-October, with September being ideal. Spring seeding is possible but the young grass has less time to establish before summer heat.'),
-            ('How should I water after overseeding?', 'Keep the top of the soil consistently moist until the seed sprouts, usually with light watering once or twice a day for the first one to two weeks. Once the new grass is up, water less often but more deeply.'),
-            ('What do I do with the soil plugs?', 'Leave them. The plugs break down on their own within a couple of weeks, especially after rain and mowing, and return that soil to the lawn.'),
-        ],
-        'related': ['lawn-mowing', 'seasonal-cleanups', 'mulch-pine-straw'],
-    },
-    {
-        'slug': 'mulch-pine-straw',
-        'name': 'Mulch, Pine Straw & Beds',
-        'short': 'Fresh mulch or pine straw, crisp bed edges and weeding that make the whole property look finished.',
-        'img': 'garden-path',
-        'title': 'Mulch & Pine Straw Installation in Apex, NC',
-        'desc': 'Mulch and pine straw installation, bed edging and weeding in Apex, Cary, Holly Springs and the Triangle. Clean, finished landscape beds. Free estimates.',
-        'h1': 'Mulch, Pine Straw &amp; <span class="hl">Bed Care</span>',
-        'lead': 'Nothing freshens up a property faster than clean beds, sharp edges and a new layer of mulch or pine straw.',
-        'intro': [
-            'Fresh mulch or pine straw instantly makes a yard look cared for. It also does real work: it holds moisture in the soil, keeps roots cooler in summer and helps keep weeds down.',
-            'We prep every bed before anything goes down. Weeds are pulled, edges are cut clean and old material is leveled out so the new layer goes on smooth and even.',
-        ],
-        'includes': [
-            'Weeding beds before every install',
-            'Hand-cut, crisp bed edges',
-            'Hardwood mulch or long-leaf pine straw',
-            'Spread at the right depth, kept off trunks and siding',
-            'Cleanup of walks and driveways when we finish',
-        ],
-        'local_title': 'Mulch or pine straw?',
-        'local': [
-            'Pine straw is a Carolina classic. It is light, knits together so it stays put on slopes, and suits the azaleas, camellias and hollies found in so many Triangle yards. Hardwood mulch gives a darker, more finished look and breaks down into the soil over time.',
-            'Either way, more is not better. About 2 to 3 inches of mulch is plenty, and it should never be piled up against tree trunks. Those "mulch volcanoes" trap moisture against the bark and can slowly damage the tree.',
-        ],
-        'faqs': [
-            ('Is mulch or pine straw better?', 'Both work well. Pine straw is lighter, stays put on slopes and is popular in the Carolinas. Hardwood mulch looks darker and more formal and adds organic matter as it breaks down. Many homeowners choose based on the look they like.'),
-            ('How deep should mulch be?', 'About 2 to 3 inches is right for most beds. Thicker layers can keep water from reaching the soil, and mulch should always be pulled back a few inches from tree trunks and the house.'),
-            ('How often should beds be refreshed?', 'Most beds look best with a fresh layer once a year, often in spring. Pine straw fades faster, so some homeowners refresh it in both spring and fall.'),
-        ],
-        'related': ['seasonal-cleanups', 'lawn-mowing', 'hardscaping'],
-    },
-    {
-        'slug': 'seasonal-cleanups',
-        'name': 'Seasonal Cleanups',
-        'short': 'Spring and fall cleanups, leaf removal and shrub trimming to get your yard ready for the season.',
-        'img': 'planting',
-        'title': 'Leaf Removal & Yard Cleanups in Apex, NC',
-        'desc': 'Fall leaf removal, spring yard cleanups and shrub trimming in Apex, Cary, Holly Springs and the Triangle. Debris hauled away. Free estimates: (984) 381-8731.',
-        'h1': 'Leaf Removal &amp; <span class="hl">Seasonal Cleanups</span>',
-        'lead': 'Start every season with a clean slate. We clear the leaves, trim the shrubs and haul it all away.',
-        'intro': [
-            'A good cleanup resets the whole property. In the fall that means clearing leaves before they smother the lawn. In the spring it means clearing winter debris, cutting back beds and trimming shrubs so everything grows in clean.',
-            'Everything we clear is hauled away, so you are not left with piles of bags at the curb.',
-        ],
-        'includes': [
-            'Leaf removal from lawns and beds',
-            'Shrub and hedge trimming',
-            'Bed cleanup and perennial cutbacks',
-            'Storm debris and fallen limb pickup',
-            'Haul-away of everything we clear',
-        ],
-        'local_title': 'Why fall leaf removal matters here',
-        'local': [
-            'Triangle oaks, maples and sweetgums drop most of their leaves from late October into December. That is exactly when tall fescue is doing most of its growing, and when newly seeded lawns are trying to establish.',
-            'A thick layer of wet leaves blocks sunlight and can smother fescue in just a few weeks. Clearing leaves regularly through the fall protects your lawn and any seed you put down in September.',
-        ],
-        'faqs': [
-            ('When should I schedule a fall cleanup?', 'Most Triangle properties benefit from a cleanup once the bulk of the leaves have dropped, usually late November into December. Yards with lots of trees or new seed often do better with two visits: one mid-fall and one once the trees are bare.'),
-            ('Why is it bad to leave leaves on the lawn?', 'A thick layer of leaves blocks sunlight and traps moisture, which can smother grass and encourage disease. Fescue lawns are actively growing in the fall, so they suffer the most.'),
-            ('What is included in a spring cleanup?', 'Typically clearing winter debris from lawns and beds, cutting back ornamental grasses and perennials, trimming shrubs, edging beds and getting everything ready for fresh mulch or pine straw.'),
-        ],
-        'related': ['mulch-pine-straw', 'tree-trimming-removal', 'lawn-mowing'],
-    },
-    {
-        'slug': 'hardscaping',
-        'name': 'Hardscaping',
-        'short': 'Patios, walkways and retaining walls built to stand up to North Carolina clay and heavy rain.',
-        'img': 'hero-home',
-        'title': 'Patios, Walkways & Retaining Walls in Apex, NC',
-        'desc': 'Paver patios, walkways and retaining walls in Apex, Cary, Holly Springs and the Triangle. Built on a solid base with proper drainage. Free estimates.',
-        'h1': 'Patios, Walkways &amp; <span class="hl">Retaining Walls</span>',
-        'lead': 'Outdoor living spaces built on a solid base, so they look great on day one and for years after.',
-        'intro': [
-            'A patio, walkway or retaining wall can completely change how you use your yard. What makes it last is everything you never see: a properly excavated and compacted base, and a plan for where the water goes.',
-            'We build hardscapes to handle Triangle conditions, and we can tie them in with the lawn, beds and plantings around them so the whole space looks like it belongs together.',
-        ],
-        'includes': [
-            'Paver patios',
-            'Walkways and stepping paths',
-            'Retaining walls',
-            'Compacted gravel base and proper drainage',
-            'Finishing landscaping around the new space',
-        ],
-        'local_title': 'Built for clay and rain',
-        'local': [
-            'Red clay holds water and moves as it gets wet and dries out. Combined with heavy summer downpours, that is hard on anything built on top of it. Pavers laid on a thin or poorly compacted base settle and shift, and retaining walls without drainage behind them can bulge or fail.',
-            'A properly compacted base under patios and walkways, and gravel backfill with drainage behind walls, is what keeps a hardscape level and solid for the long run.',
-        ],
-        'faqs': [
-            ('How long does a paver patio last?', 'Built on a properly excavated and compacted base, a paver patio can last for decades. Individual pavers can also be lifted and reset if needed, which makes repairs much easier than with poured concrete.'),
-            ('Do retaining walls need drainage?', 'Yes. Water building up behind a wall pushes against it and is a leading cause of wall failure. Gravel backfill and a drain line behind the wall let water escape instead of building pressure.'),
-            ('Can you do the landscaping around a new patio too?', 'Yes. We handle lawn, beds, mulch and pine straw too, so the area around your new patio or walkway can be finished at the same time.'),
-        ],
-        'related': ['mulch-pine-straw', 'lawn-mowing', 'seasonal-cleanups'],
-    },
-]
+from services import SERVICES  # noqa: F401,E402
+from combos import COMBOS  # noqa: F401,E402
 
 # ---------------------------------------------------------------- Towns
 TOWNS = [
@@ -372,7 +179,7 @@ GUIDES = [
 <li>November: second fertilizer application</li>
 </ul>
 ''',
-        'related_services': ['aeration-overseeding', 'seasonal-cleanups', 'lawn-mowing'],
+        'related_services': ['lawn-care', 'tree-services', 'landscaping'],
     },
     {
         'slug': 'mulch-vs-pine-straw',
@@ -404,7 +211,7 @@ GUIDES = [
 <h2>The quick answer</h2>
 <p><strong>Choose pine straw</strong> for slopes, natural-looking beds and a classic Carolina look. <strong>Choose hardwood mulch</strong> for a darker, more formal look on flat beds where you want color that lasts.</p>
 ''',
-        'related_services': ['mulch-pine-straw', 'seasonal-cleanups', 'hardscaping'],
+        'related_services': ['landscaping', 'lawn-care', 'hardscaping-fencing'],
     },
     {
         'slug': 'when-to-trim-trees-nc',
@@ -439,14 +246,16 @@ GUIDES = [
 <h2>Check before you remove</h2>
 <p>Many trees on private residential lots can be removed without a permit, but rules vary by town and property, and many HOAs require approval first. Check with your town and HOA before taking down a large tree.</p>
 ''',
-        'related_services': ['tree-trimming-removal', 'seasonal-cleanups', 'lawn-mowing'],
+        'related_services': ['tree-services', 'landscaping', 'lawn-care'],
     },
 ]
 
 HOME_FAQS = [
     ('Do you offer free estimates?', 'Yes. Call, text or use the form on our contact page with your address and what you need, and we will get back to you with a price.'),
     ('What areas do you serve?', 'We are based in Apex, NC and serve Cary, Holly Springs, Fuquay-Varina, Morrisville and southwest Raleigh. Not sure if you are in range? Just ask.'),
-    ('Do you handle both lawn care and tree work?', 'Yes. From weekly mowing to tree trimming and removal, one call covers everything outside your home.'),
+    ('Are you insured?', 'Yes. We are 100% insured, so your property is protected on every job.'),
+    ('Do you handle both lawn care and tree work?', 'Yes. From weekly mowing to tree removal, landscaping, patios and even Christmas lights, one call covers everything outside your home.'),
+    ('Do you work with HOAs and commercial properties?', 'Yes. We provide recurring grounds maintenance, common area upkeep and trash pickup for HOA communities and commercial properties.'),
     ('When is the best time to aerate and overseed?', 'For tall fescue lawns, the most common type in the Triangle, early fall is best, roughly late August through mid-October, with September ideal.'),
 ]
 
@@ -457,7 +266,8 @@ REVIEWS = []
 
 # Add real job photos here (files in images/projects/). Leave empty to show the
 # "coming soon" message. 'before' is optional; when present a before/after slider is shown.
-# Example: {'title': 'Backyard cleanup', 'town': 'Apex', 'service': 'seasonal-cleanups',
+# 'featured': True also shows a project with a before photo in the home page Before & After section.
+# Example: {'title': 'Backyard cleanup', 'town': 'Apex', 'service': 'landscaping', 'featured': True,
 #           'after': 'projects/cleanup-after.jpg', 'before': 'projects/cleanup-before.jpg',
 #           'text': 'Overgrown beds cleared, edged and finished with pine straw.'}
 PROJECTS = []
