@@ -991,6 +991,37 @@ def build_sitemap():
     (ROOT / 'robots.txt').write_text(f'User-agent: *\nAllow: /\nDisallow: /_build/\nDisallow: /concepts/\n\nSitemap: {SITE}/sitemap.xml\n')
 
 
+# Old site (before Nov 2026) URLs -> new pages, so indexed links keep working. Netlify reads /_redirects.
+OLD_SERVICES = {
+    'aeration': 'lawn-care', 'lawn-mowing': 'lawn-care', 'leaf-removal': 'lawn-care', 'yard-cleanup': 'lawn-care',
+    'sod-installation': 'sod-installation', 'mulch-installation': 'mulch-pine-straw', 'pine-straw': 'mulch-pine-straw',
+    'hardscaping': 'hardscaping', 'drainage-solutions': 'drainage-solutions', 'gutter-cleaning': 'gutter-cleaning',
+    'tree-services': 'tree-services', 'river-rock': 'landscaping', 'planting': 'landscaping',
+}
+OLD_TOWNS = ['apex', 'cary', 'raleigh', 'fuquay-varina', 'holly-springs']
+OLD_PAGES = {'about': '/about/', 'gallery': '/projects/', 'testimonials': '/reviews/', 'contact': '/contact/', 'services': '/services/'}
+
+
+def build_redirects():
+    rules = [('/index.html', '/')]
+    for old, new in OLD_PAGES.items():
+        if new != f'/{old}/':
+            rules.append((f'/{old}', new))
+        rules.append((f'/{old}.html', new))
+    for old, new in OLD_SERVICES.items():
+        if old != new:
+            rules.append((f'/services/{old}', f'/services/{new}/'))
+        rules.append((f'/services/{old}.html', f'/services/{new}/'))
+    for town in OLD_TOWNS:
+        t = TOWN[f'{town}-nc']
+        rules.append((f'/areas/{town}', f'/service-areas/{town}-nc/'))
+        rules.append((f'/areas/{town}.html', f'/service-areas/{town}-nc/'))
+        for old, new in OLD_SERVICES.items():
+            rules.append((f'/service-areas/{old}-{town}.html', '/' + combo_path(SVC[new], t)))
+    (ROOT / '_redirects').write_text(''.join(f'{a}  {b}  301\n' for a, b in rules))
+    return len(rules)
+
+
 GENERATED = ['services', 'service-areas', 'projects', 'reviews', 'about', 'contact', 'lawn-care-guides', 'thank-you']
 
 if __name__ == '__main__':
@@ -1015,4 +1046,5 @@ if __name__ == '__main__':
     build_guides()
     build_404()
     build_sitemap()
-    print(f'Built {len(SITEMAP)} pages + 404, sitemap.xml, robots.txt')
+    n_redirects = build_redirects()
+    print(f'Built {len(SITEMAP)} pages + 404, sitemap.xml, robots.txt, {n_redirects} redirects')
