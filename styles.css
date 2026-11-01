@@ -73,8 +73,8 @@ h2 { font-size: clamp(2.3rem, 5vw, 3.6rem); color: var(--green); }
 .site-header { position: sticky; top: 0; z-index: 50; background: var(--green); }
 .site-header::after { content: ""; display: block; height: 6px; background: linear-gradient(90deg, var(--accent) 0 18%, var(--lime) 18% 100%); }
 .site-header .wrap { display: flex; align-items: center; justify-content: space-between; height: 88px; }
-.site-header .logo { display: block; background: var(--black); border: 3px solid var(--lime); border-radius: 14px; padding: 4px 10px; transform: rotate(-1.5deg); }
-.logo img { width: 112px; height: auto; }
+.site-header .logo { display: block; }
+.logo img { width: 136px; height: auto; }
 .nav { display: flex; align-items: center; gap: 26px; }
 .nav > a, .dd > a { color: var(--white); text-decoration: none; font-family: var(--cond); font-weight: 700; font-size: 1.25rem; text-transform: uppercase; letter-spacing: .04em; }
 .nav > a:hover, .dd > a:hover, .nav [aria-current="page"] { color: var(--lime); }
@@ -368,7 +368,7 @@ section { padding: 92px 0; }
   .hide-sm { display: none; }
   .site-header .wrap { height: 76px; }
   .nav { top: 82px; }
-  .logo img { width: 96px; }
+  .logo img { width: 116px; }
   .hero { min-height: 0; }
   .hero .wrap { padding-top: 56px; padding-bottom: 140px; }
   .actions .btn { width: 100%; }
