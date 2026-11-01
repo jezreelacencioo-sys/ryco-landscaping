@@ -261,15 +261,15 @@ section { padding: 92px 0; }
 
 /* Inner page hero */
 .page-hero { position: relative; overflow: hidden; color: var(--white); background: var(--black); padding: 64px 0 96px; }
-.page-hero::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, rgba(5, 12, 7, .94), rgba(7, 40, 20, .72)); }
+.page-hero::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(6, 38, 18, .9), rgba(6, 38, 18, .82)); }
 .page-hero::after { content: ""; position: absolute; z-index: 2; left: 0; right: 0; bottom: 0; height: 8px; background: linear-gradient(90deg, var(--lime) 0 82%, var(--accent) 82% 100%); }
 .page-hero .wrap { position: relative; z-index: 2; }
-/* Banner photos are small originals; soften them on wide screens so enlargement doesn't look blocky */
-.hero-bg { position: absolute; inset: -24px; z-index: 0; background: center / cover no-repeat; }
-@media (min-width: 900px) {
-  .hero .hero-bg { filter: blur(2px); }
-  .page-hero .hero-bg { filter: blur(5px); }
-}
+.hero-bg { position: absolute; inset: 0; z-index: 0; background: center / cover no-repeat; }
+/* Page banners: dark green grass texture with centered text */
+.page-hero { text-align: center; }
+.page-hero h1, .page-hero .lead { margin-left: auto; margin-right: auto; }
+.page-hero h1::after { margin-left: auto; margin-right: auto; }
+.page-hero .actions { justify-content: center; }
 .page-hero h1 { font-size: clamp(2.8rem, 6.4vw, 5rem); max-width: 16ch; }
 .crumbs { font-size: .92rem; font-weight: 700; color: var(--lime); margin-bottom: 30px; }
 .crumbs a { color: var(--white); text-decoration: none; }

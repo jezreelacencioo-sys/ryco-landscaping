@@ -267,13 +267,13 @@ def breadcrumbs(crumbs):
     return '<nav class="crumbs" aria-label="Breadcrumb">' + ' <span aria-hidden="true">/</span> '.join(parts) + '</nav>'
 
 
-def page_hero(image, eyebrow, h1, lead, crumbs=None, buttons=True):
+def page_hero(eyebrow, h1, lead, crumbs=None, buttons=True):
     btns = f'''
     <div class="actions">
       <a class="btn btn-lime" href="~/contact/">Get a Free Estimate</a>
       <a class="btn btn-outline" href="{TEL}">Call {B["phone"]}</a>
     </div>''' if buttons else ''
-    return f'''<section class="page-hero"><div class="hero-bg" style="background-image:url('~/images/{image}')" aria-hidden="true"></div>
+    return f'''<section class="page-hero"><div class="hero-bg" style="background-image:url('~/images/grass.jpg')" aria-hidden="true"></div>
   <div class="wrap">
     {breadcrumbs(crumbs) if crumbs else ''}
     <div class="eyebrow">{eyebrow}</div>
@@ -529,7 +529,7 @@ def build_home():
 
 def build_services_hub():
     crumbs = [('Home', ''), ('Services', 'services/')]
-    body = page_hero('work/backyard-walkway.jpg', 'Our services', 'Lawn, Tree &amp; <span class="hl">Landscape</span> Services',
+    body = page_hero('Our services', 'Lawn, Tree &amp; <span class="hl">Landscape</span> Services',
                      'Everything outside your home or property, handled by one local, 5-star rated and 100% insured crew.', crumbs) + f'''<section>
   <div class="wrap">
     <div class="section-head reveal"><div class="eyebrow">Pick a service</div><h2>What can we <span class="hl">help with?</span></h2></div>
@@ -539,7 +539,7 @@ def build_services_hub():
 {steps_block()}{reviews_band()}{cta_band()}'''
     page('services/', 'Lawn, Tree & Landscaping Services in Apex, NC | Carolina Premier',
          'Lawn care, landscaping, tree services, hardscaping and fencing, Christmas lighting and commercial and HOA maintenance in Apex, NC and the Triangle.',
-         body, schema=[crumbs_ld(crumbs)], preload='work/backyard-walkway.jpg')
+         body, schema=[crumbs_ld(crumbs)], preload='grass.jpg')
 
 
 def build_service(s):
@@ -562,7 +562,7 @@ def build_service(s):
   </div>
 </section>
 '''
-    body = page_hero(s['img'] + '.jpg', 'Apex &amp; the Triangle', s['h1'], e(s['lead']), crumbs) + f'''<section>
+    body = page_hero('Apex &amp; the Triangle', s['h1'], e(s['lead']), crumbs) + f'''<section>
   <div class="wrap split top">
     <div class="reveal prose">
       <div class="eyebrow">{e(s["name"])}</div>
@@ -614,7 +614,7 @@ def build_service(s):
                   'hasOfferCatalog': {'@type': 'OfferCatalog', 'name': s['name'], 'itemListElement': [
                       {'@type': 'Offer', 'itemOffered': {'@type': 'Service', 'name': n, 'description': d}} for n, d in s['items']]}}
     page(path, s['title'] + ' | Carolina Premier', s['desc'], body,
-         schema=[service_ld, faq_ld(s['faqs']), crumbs_ld(crumbs)], preload=s['img'] + '.jpg')
+         schema=[service_ld, faq_ld(s['faqs']), crumbs_ld(crumbs)], preload='grass.jpg')
 
 
 def build_combo(s, t):
@@ -630,7 +630,7 @@ def build_combo(s, t):
         f'<li><a href="~/{combo_path(s, TOWN[n])}">{e(s["name"])} in {TOWN[n]["name"]}</a></li>' for n in t['nearby']) \
         + f'<li><a href="~/services/{s["slug"]}/">All {e(s["name"])}</a></li></ul>'
     who = 'properties' if s['slug'] == 'commercial-hoa' else 'homes'
-    body = page_hero(s['img'] + '.jpg', f'{name}, NC', f'{e(s["name"])} in <span class="hl">{name}, NC</span>',
+    body = page_hero(f'{name}, NC', f'{e(s["name"])} in <span class="hl">{name}, NC</span>',
                      e(c['lead']), crumbs) + f'''<section>
   <div class="wrap split top">
     <div class="reveal prose">
@@ -668,7 +668,7 @@ def build_combo(s, t):
     if len(title) > 65:
         title = f'{s["name"]} in {name}, NC'
     page(path, title, f'{c["lead"]} Free estimates: {B["phone"]}.', body,
-         schema=[service_ld, faq_ld(c['faqs']), crumbs_ld(crumbs)], preload=s['img'] + '.jpg')
+         schema=[service_ld, faq_ld(c['faqs']), crumbs_ld(crumbs)], preload='grass.jpg')
 
 
 def build_areas_hub():
@@ -676,7 +676,7 @@ def build_areas_hub():
     cards = '\n'.join(f'''<a class="town-card reveal" href="~/service-areas/{t["slug"]}/">
   <h3>{t["name"]}, NC</h3><p>{e(t["lead"])}</p><span class="more">Services in {t["name"]} →</span>
 </a>''' for t in TOWNS)
-    body = page_hero('work/tree-service.jpg', 'Where we work', 'Serving Apex &amp; the <span class="hl">Triangle</span>',
+    body = page_hero('Where we work', 'Serving Apex &amp; the <span class="hl">Triangle</span>',
                      'Based in Apex, we serve homeowners throughout southwest Wake County.', crumbs) + f'''<section class="dark">
   <div class="wrap">
     <div class="town-grid">
@@ -694,7 +694,7 @@ def build_areas_hub():
 {cta_band()}'''
     page('service-areas/', 'Areas We Serve: Apex, Cary & Holly Springs | Carolina Premier',
          'Carolina Premier Lawn & Tree Services serves Apex, Cary, Holly Springs, Fuquay-Varina, Morrisville and southwest Raleigh, NC.',
-         body, schema=[crumbs_ld(crumbs)], preload='work/tree-service.jpg')
+         body, schema=[crumbs_ld(crumbs)], preload='grass.jpg')
 
 
 def build_town(t):
@@ -706,7 +706,7 @@ def build_town(t):
     svc_links = '\n'.join(f'''<a class="svc-link reveal" href="~/{combo_path(s, t)}"><b>{e(s["name"])}</b><span>{e(s["short"])}</span></a>''' for s in SERVICES)
     nearby = '<ul class="towns">' + ''.join(
         f'<li><a href="~/service-areas/{n}/">{TOWN[n]["name"]}, NC</a></li>' for n in t['nearby']) + '</ul>'
-    body = page_hero(t['img'] + '.jpg', f'Serving {name}, NC', f'Lawn Care &amp; Tree Services in <span class="hl">{name}, NC</span>',
+    body = page_hero(f'Serving {name}, NC', f'Lawn Care &amp; Tree Services in <span class="hl">{name}, NC</span>',
                      e(t['lead']), crumbs) + f'''<section>
   <div class="wrap split">
     <div class="reveal prose">
@@ -743,7 +743,7 @@ def build_town(t):
 {cta_band(f"Need help with your {name} yard?")}'''
     page(path, f'Lawn Care & Tree Services in {name}, NC | Carolina Premier',
          f'Lawn care, landscaping, tree services, patios, fencing and Christmas lights in {name}, NC. 5-star rated and 100% insured. Free estimates: (984) 381-8731.',
-         body, schema=[faq_ld(t['faqs']), crumbs_ld(crumbs)], preload=t['img'] + '.jpg')
+         body, schema=[faq_ld(t['faqs']), crumbs_ld(crumbs)], preload='grass.jpg')
 
 
 def build_projects():
@@ -768,7 +768,7 @@ def build_projects():
     <a class="btn btn-dark" href="~/contact/">Get a Free Estimate</a>
   </div>
 </div>'''
-    body = page_hero('work/front-yard.jpg', 'Our work', 'Recent <span class="hl">Projects</span>',
+    body = page_hero('Our work', 'Recent <span class="hl">Projects</span>',
                      'Lawns, trees and landscapes we have transformed across Apex and the Triangle.', crumbs, buttons=False) + f'''<section class="off">
   <div class="wrap">
     {gallery}
@@ -777,7 +777,7 @@ def build_projects():
 {cta_band("Want results like these?")}'''
     page('projects/', 'Our Projects: Lawn & Tree Work in Apex, NC | Carolina Premier',
          'See recent lawn care, tree trimming and landscaping projects by Carolina Premier Lawn & Tree Services in Apex and the Triangle.',
-         body, schema=[crumbs_ld(crumbs)], preload='work/front-yard.jpg')
+         body, schema=[crumbs_ld(crumbs)], preload='grass.jpg')
 
 
 def build_reviews():
@@ -788,7 +788,7 @@ def build_reviews():
   <h2>Read our reviews <span class="hl">on Google</span></h2>
   <p>Our customers have left {B["review_count"]} reviews on Google, and every one of them is five stars. Click below to read them all.</p>
 </div>'''
-    body = page_hero('work/backyard-walkway.jpg', 'Customer reviews', f'<span class="hl">{B["rating"]}</span> Stars on Google',
+    body = page_hero('Customer reviews', f'<span class="hl">{B["rating"]}</span> Stars on Google',
                      f'{B["review_count"]} five-star reviews from homeowners across Apex and the Triangle.', crumbs, buttons=False) + f'''<section class="off">
   <div class="wrap">
     <div class="rating-hero reveal">
@@ -808,12 +808,12 @@ def build_reviews():
 {cta_band("Join our happy customers")}'''
     page('reviews/', '5-Star Reviews | Carolina Premier Lawn & Tree, Apex NC',
          f'Carolina Premier Lawn & Tree Services is rated {B["rating"]} stars from {B["review_count"]} Google reviews. See what Apex and Triangle homeowners say.',
-         body, schema=[crumbs_ld(crumbs)], preload='work/backyard-walkway.jpg')
+         body, schema=[crumbs_ld(crumbs)], preload='grass.jpg')
 
 
 def build_about():
     crumbs = [('Home', ''), ('About', 'about/')]
-    body = page_hero('work/front-yard.jpg', 'About us', 'Your Local <span class="hl">Lawn &amp; Tree</span> Team',
+    body = page_hero('About us', 'Your Local <span class="hl">Lawn &amp; Tree</span> Team',
                      'Based in Apex, NC and rated five stars by our customers.', crumbs) + f'''<section>
   <div class="wrap split">
     {img("work/planting.jpg", cls="reveal rounded")}
@@ -845,7 +845,7 @@ def build_about():
 {cta_band()}'''
     page('about/', 'About Us | Carolina Premier Lawn & Tree Services, Apex NC',
          'Carolina Premier Lawn & Tree Services LLC is a 5-star rated lawn care and tree service company based in Apex, NC, serving the Triangle.',
-         body, schema=[crumbs_ld(crumbs)], preload='work/front-yard.jpg')
+         body, schema=[crumbs_ld(crumbs)], preload='grass.jpg')
 
 
 def build_contact():
@@ -887,7 +887,7 @@ def build_contact():
       <p class="form-note">You'll get a confirmation email as soon as you send this. Prefer to talk? Call or text <a href="{TEL}">{B["phone"]}</a>.</p>
     </form>'''
     request_form = jobber_form if USE_JOBBER_FORM else email_form
-    body = page_hero('work/backyard-walkway.jpg', 'Contact us', 'Get Your <span class="hl">Free Estimate</span>',
+    body = page_hero('Contact us', 'Get Your <span class="hl">Free Estimate</span>',
                      "Send us a request and we'll get back to you to set up your free estimate. Prefer to talk? Call or text anytime.", crumbs, buttons=False) + f'''<section class="off">
   <div class="wrap contact-grid">
     {request_form}
@@ -905,11 +905,11 @@ def build_contact():
 {faq_block(HOME_FAQS[:2], title="Before you reach out", cls="")}'''
     page('contact/', 'Free Estimate | Contact Carolina Premier Lawn & Tree, Apex NC',
          'Get a free estimate for lawn care, tree services or landscaping in Apex, NC and the Triangle. Call or text (984) 381-8731 or send a request online.',
-         body, schema=[crumbs_ld(crumbs)], preload='work/backyard-walkway.jpg')
+         body, schema=[crumbs_ld(crumbs)], preload='grass.jpg')
 
 
 def build_thanks():
-    body = page_hero('work/backyard-walkway.jpg', 'Request received', 'Thanks! We got <span class="hl">your request</span>',
+    body = page_hero('Request received', 'Thanks! We got <span class="hl">your request</span>',
                      "We'll get back to you soon with a price. Check your inbox for a confirmation email (and your spam folder, just in case).", buttons=False) + f'''<section class="off">
   <div class="wrap"><div class="coming-soon reveal">
     <h2>Need us <span class="hl">sooner?</span></h2>
@@ -923,21 +923,21 @@ def build_thanks():
 
 def build_guides():
     crumbs = [('Home', ''), ('Lawn Care Guides', 'lawn-care-guides/')]
-    body = page_hero('work/mulch-walkway.jpg', 'Lawn care guides', 'Tips for <span class="hl">Triangle</span> Yards',
+    body = page_hero('Lawn care guides', 'Tips for <span class="hl">Triangle</span> Yards',
                      'Straightforward advice for lawns, beds and trees in our part of North Carolina.', crumbs, buttons=False) + f'''<section class="off">
   <div class="wrap"><div class="guides">{''.join(guide_card(g) for g in GUIDES)}</div></div>
 </section>
 {cta_band("Rather leave it to the pros?")}'''
     page('lawn-care-guides/', 'Lawn Care Guides for Apex & the Triangle | Carolina Premier',
          'Lawn, landscape and tree care advice for homeowners in Apex, Cary and the Triangle from Carolina Premier Lawn & Tree Services.',
-         body, schema=[crumbs_ld(crumbs)], preload='work/mulch-walkway.jpg')
+         body, schema=[crumbs_ld(crumbs)], preload='grass.jpg')
 
     for g in GUIDES:
         path = f'lawn-care-guides/{g["slug"]}/'
         gc = crumbs + [(g['title'], path)]
         related = svc_grid([SVC[r] for r in g['related_services']])
         others = [o for o in GUIDES if o is not g]
-        body = page_hero(g['img'] + '.jpg', 'Lawn care guide', g['h1'], e(g['summary']), gc, buttons=False) + f'''<section>
+        body = page_hero('Lawn care guide', g['h1'], e(g['summary']), gc, buttons=False) + f'''<section>
   <div class="wrap article-grid">
     <article class="prose article">
       {g["body"]}
@@ -965,7 +965,7 @@ def build_guides():
                    'author': {'@id': SITE + '/#business'}, 'publisher': {'@id': SITE + '/#business'},
                    'mainEntityOfPage': SITE + '/' + path}
         page(path, g['title'] + ' | Carolina Premier', g['desc'], body,
-             schema=[article, crumbs_ld(gc)], preload=g['img'] + '.jpg', og_type='article')
+             schema=[article, crumbs_ld(gc)], preload='grass.jpg', og_type='article')
 
 
 def build_404():
