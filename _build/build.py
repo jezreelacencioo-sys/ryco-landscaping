@@ -273,7 +273,7 @@ def page_hero(image, eyebrow, h1, lead, crumbs=None, buttons=True):
       <a class="btn btn-lime" href="~/contact/">Get a Free Estimate</a>
       <a class="btn btn-outline" href="{TEL}">Call {B["phone"]}</a>
     </div>''' if buttons else ''
-    return f'''<section class="page-hero" style="background-image:url('~/images/{image}')">
+    return f'''<section class="page-hero"><div class="hero-bg" style="background-image:url('~/images/{image}')" aria-hidden="true"></div>
   <div class="wrap">
     {breadcrumbs(crumbs) if crumbs else ''}
     <div class="eyebrow">{eyebrow}</div>
@@ -445,7 +445,7 @@ def before_after_home():
 def build_home():
     services_cards = svc_grid(SERVICES, cta=True)
     guides = '\n'.join(guide_card(g) for g in GUIDES)
-    body = f'''<section class="hero" style="background-image:url('~/images/work/hero.jpg')">
+    body = f'''<section class="hero"><div class="hero-bg" style="background-image:url('~/images/work/hero.jpg')" aria-hidden="true"></div>
   <div class="wrap">
     <div class="hero-copy">
       <div class="eyebrow">Landscaping · Hardscaping · Tree Services</div>
@@ -969,7 +969,7 @@ def build_guides():
 
 
 def build_404():
-    body = f'''<section class="page-hero" style="background-image:url('~/images/work/backyard-walkway.jpg')">
+    body = f'''<section class="page-hero"><div class="hero-bg" style="background-image:url('~/images/work/backyard-walkway.jpg')" aria-hidden="true"></div>
   <div class="wrap">
     <div class="eyebrow">Error 404</div>
     <h1>This page got <span class="hl">mowed over</span></h1>
