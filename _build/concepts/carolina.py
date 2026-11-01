@@ -16,7 +16,7 @@ ICONS = {
 
 
 def icon(slug, size=28):
-    return f'<svg width="{size}" height="{size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{ICONS[slug]}</svg>'
+    return f'<svg width="{size}" height="{size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{ICONS.get(slug, ICONS['landscaping'])}</svg>'
 
 
 CSS = r''':root { --navy: #0f2a44; --navy-2: #173b5e; --blue: #7bafd4; --blue-l: #e8f2fa; --green: #2e8c3e; --green-d: #23702f; --ink: #142233; --muted: #5a6878; --line: #e2e8ee; --bg: #f7fafc; }
