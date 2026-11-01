@@ -67,4 +67,5 @@ for concept in (garden, carolina, estate, field, mix):
 review_page()
 palettes.build()
 mascots.build()
+mascots.build_bear()
 print('built concepts review page')
