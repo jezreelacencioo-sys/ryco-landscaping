@@ -94,7 +94,7 @@ Live site: https://carolinapremierservices.org (hosted on Netlify, auto-deploys 
 - Christmas lighting: company supplies, installs, maintains, removes and stores the lights. **Do not publish pricing, bulb specs (C9, spacing) or wiring/hardware details** on the site.
 
 ## Integrations
-- Contact page uses the embedded **Jobber** online request form (IDs in `_build/build.py`: `JOBBER_ID`, `JOBBER_FORM_URL`). Form fields and booking hours are changed in Jobber, not in this repo.
+- Contact page form is switched by `USE_JOBBER_FORM` in `_build/build.py`. **Currently `False` (temporary):** the email form via FormSubmit (sends to the business Gmail, auto-confirms the customer, redirects to `/thank-you/`), because the Jobber form's booking step showed "Estimated duration: 0m" and no time slots. Set it back to `True` once that is fixed in Jobber to use the embedded **Jobber** request form (`JOBBER_ID`, `JOBBER_FORM_URL`, form #4514703). Form fields, booking hours and duration are changed in Jobber, not in this repo.
 - Netlify's free plan injects a "Powered by Netlify" badge that covers the mobile "Text Us" button; fix by upgrading Netlify or moving DNS to GitHub Pages. Do not hide it with CSS.
 
 ## Before pushing
